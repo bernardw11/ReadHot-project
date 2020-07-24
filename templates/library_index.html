@@ -7,275 +7,290 @@
         <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- <link rel="stylesheet" href="/static/css/styles.css"> -->
         <style>
-* {
-  box-sizing: border-box;
-}
 
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 20px;
-}
+		* {
+			box-sizing: border-box;
+		}
 
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-.responsive {
-  width: 100px;
-  height: 400px;
-}
-.content_img {
-  display: block;
-  width: 100px;
-  height: 400px;
-}
-.sidenav {
-  height: 100%;
-  width: 206px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #da9194;
-  overflow-x: hidden;
-  padding-top: 20px;
-  opacity:
-}
+		.column {
+			float: left;
+			width: 33.33%;
+			padding: 20px;
+		}
 
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 30px;
-  font-family:'Bebas Neue';
-  color: #FFFDD0;
-  display: block;
-}
+		/* Clearfix (clear floats) */
+		.row::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
 
-.sidenav a:hover {
-  color: #9e3539;
-}
-body{
-     background-color: #FFFDD0;
-}
-.main {
-  margin-left: 460px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
+		.responsive {
+			width: 100px;
+			height: 400px;
+		}
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-img:hover{
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
- -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 255, 0, 0.67);
--moz-box-shadow:    0px 0px 30px 0px rgba(0, 255, 0, 0.67);
-box-shadow:         0px 0px 30px 0px rgba(0, 255, 0, 0.67);
-}
-img:last-of-type:hover{
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
- -webkit-box-shadow: 0px 0px 30px 0px rgba(232, 0, 0, 0.67);
--moz-box-shadow:    0px 0px 30px 0px rgba(232, 0, 0, 0.67);
-box-shadow:         0px 0px 30px 0px rgba(232, 0, 0, 0.67);
-}
+		.content_img {
+			display: block;
+			width: 100px;
+			height: 400px;
+		}
 
-/* Parent Container */
-.content_img{
- position: relative;
- width: 500px;
- height: 500px;
- float: left;
- margin-right: 10px;
-} 
+		.sidenav {
+			height: 100%;
+			width: 206px;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: #da9194;
+			overflow-x: hidden;
+			padding-top: 20px;
+		}
 
-/* Child Text Container */
-.content_img div{
- position: absolute;
- top:30%;
- bottom: 30%;
- background: black;
- color: white;
- margin-bottom: 5px;
- font-family:'Open Sans';
- opacity: 0;
- visibility: hidden;
- -webkit-transition: visibility 0s, opacity 0.5s linear; 
- transition: visibility 0s, opacity 0.5s linear;
- width: 100px;
- height: 250px;
-}
+		.sidenav a {
+			padding: 6px 8px 6px 16px;
+			text-decoration: none;
+			font-size: 30px;
+			font-family:'Bebas Neue';
+			color: #FFFDD0;
+			display: block;
+		}
 
-/* Hover on Parent Container */
-.content_img:hover{
- cursor: pointer;
-}
+		.sidenav a:hover {
+			color: #9e3539;
+		}
 
-.content_img:hover div{
- width: 250px;
- padding: 8px 15px;
- visibility: visible;
- opacity: 0.7; 
-}
-h1{
-    font-family: 'Montserrat';
-    font-size: 45px;
-}
-h3{
-    font-family: 'Lato';
-    font-size: 28px;
-}
-h6{
-    font-family:'Lato';
-    font-size: 15.5px;
-}
-header {
-  background-color: #C7585C;
-  padding: 30px;
-  text-align: center;
-  font-size: 50px;
-  color: white;
-  width: 1850px;
-  box-shadow: 10px 5px 5px #DCAE96;
-}
-h2{
-    font-family: 'Bebas Neue';
-    font-size: 50px;
-}
-#myBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  font-size: 20px;
-  font-family: 'Bebas Neue';
-  border: none;
-  outline: none;
-  background-color: #d0ffd9;
-  color: gray;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 4px;
-}
+		body {
+			background-color: #FFFDD0;
+		}
 
-#myBtn:hover {
-  background-color: #555;
-}
-</style>
+		.main {
+			margin-left: 460px; /* Same as the width of the sidenav */
+			font-size: 28px; /* Increased text to enable scrolling */
+			padding: 0px 10px;
+		}
+
+		@media screen and (max-height: 450px) {
+			.sidenav {padding-top: 15px;}
+			.sidenav a {font-size: 18px;}
+		}
+
+		img:hover{
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			-webkit-box-shadow: 0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+			-moz-box-shadow:    0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+			box-shadow:         0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+		}
+
+		img:last-of-type:hover{
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			-webkit-box-shadow: 0px 0px 30px 0px rgba(232, 0, 0, 0.67);
+			-moz-box-shadow:    0px 0px 30px 0px rgba(232, 0, 0, 0.67);
+			box-shadow:         0px 0px 30px 0px rgba(232, 0, 0, 0.67);
+		}
+
+		/* Parent Container */
+		.content_img{
+			position: relative;
+			width: 500px;
+			height: 500px;
+			float: left;
+			margin-right: 10px;
+		} 
+
+		/* Child Text Container */
+		.content_img div{
+			position: absolute;
+			top: 30%;
+			bottom: 30%;
+			background: black;
+			color: white;
+			margin-bottom: 5px;
+			font-family:'Open Sans';
+			opacity: 0;
+			visibility: hidden;
+			-webkit-transition: visibility 0s, opacity 0.5s linear; 
+			transition: visibility 0s, opacity 0.5s linear;
+			width: 100px;
+			height: 250px;
+		}
+
+		/* Hover on Parent Container */
+		.content_img:hover{
+			cursor: pointer;
+		}
+
+		.content_img:hover div{
+			width: 250px;
+			padding: 8px 15px;
+			visibility: visible;
+			opacity: 0.7; 
+		}
+
+		h1 {
+			font-family: 'Montserrat';
+			font-size: 45px;
+		}
+
+		h2 {
+			font-family: 'Bebas Neue';
+			font-size: 50px;
+		}
+
+		h3 {
+			font-family: 'Lato';
+			font-size: 28px;
+		}
+
+		h6 {
+			font-family:'Lato';
+			font-size: 15.5px;
+		}
+
+		header {
+			background-color: #C7585C;
+			padding: 30px;
+			text-align: center;
+			font-size: 50px;
+			color: white;
+			width: 1850px;
+			box-shadow: 10px 5px 5px #DCAE96;
+		}
+
+		#myBtn {
+			display: none;
+			position: fixed;
+			bottom: 20px;
+			right: 30px;
+			z-index: 99;
+			font-size: 20px;
+			font-family: 'Bebas Neue';
+			border: none;
+			outline: none;
+			background-color: #d0ffd9;
+			color: gray;
+			cursor: pointer;
+			padding: 15px;
+			border-radius: 4px;
+		}
+
+		#myBtn:hover {
+			background-color: #555;
+		}
+
+		</style>
     </head>
     <body>
 
-<div class="sidenav">
-  <a href="#Library">Library<i class="fa fa-book"></i></a>
-  <a href="#collections">Collections<i class='far fa-bookmark'></i></a>
-  <a href="#playlists">Generate Playlists<i class='fab fa-spotify' style='font-size:24px'></i></a>
-  <a href="#explore">Explore<i class="fa fa-search"></i></a>
-  <a href="#profile">Profile<i class='fas fa-user'></i></a>
-</div>
-<header>
-  <h2>ReadHot<i class="fa fa-book"></i></h2>
-</header>
-<div class="main">
-    <b><center><h1>LIBRARY</h1></center></b>
-    <center><h3> Here in your library you can hover each book for a brief description & click each one for a demo playlist</h3></center>
-    <div class="row">
-    <div class="column">
-        <div class="content_img">
-            <a href= "https://open.spotify.com/playlist/0zjGLygoBmpafEsGtk5n1a"><img src="https://www.amazon.com/images/I/51jNORv6nQL._SX340_BO1,204,203,200_.jpg" alt="Fantasy" style="width:50%"  class="responsive" height="600"></a>
-            <div><h6>Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry.</h6></div>
-        </div>
-    </div>
-    <div class="column">
-        <div class="content_img">
-            <a href="https://open.spotify.com/playlist/37i9dQZF1DX50QitC6Oqtn"><img src="https://prodimage.images-bn.com/pimages/9781534438378_p0_v4_s600x595.jpg" alt="Romance" style="width:50%"  class="responsive" height="600"></a>
-            <div><h6>Lara Jean keeps her love letters in a hatbox her mother gave her. One for every boy she’s ever loved. When she writes, she can pour out her heart and soul and say all the things she would never say in real life, because her letters are for her eyes only. Until the day her secret letters are mailed, and suddenly Lara Jean’s love life goes from imaginary to out of control. </h6></div>
-        </div>
-    </div>
-    <div class="column">
-        <div class ="content_img">
-            <a href = "https://open.spotify.com/album/7Ae2JYIXnbn5wr2k9rQCOi"><img src="https://upload.wikimedia.org/wikipedia/en/6/62/Silence3.png" alt="Horror" style="width:50%" class="responsive" height="600"></a>
-            <div><h6>As part of the search for a serial murderer nicknames "Buffalo Bill," FBI trainee Clarice Starling is given an assignment. She must visit a man confined to a high-security facility for the criminally insane and interview him. That man, Dr. Hannibal Lecter, is a former psychiatrist with unusual tastes and an intense curiosity about the darker corners of the mind. </h6></div>
-        </div>
-    </div>
-    </div>
-    <div class="row">
-        <div class="column">
-            <div class ="content_img">
-                <a href ="https://open.spotify.com/album/7bXOViTvx6EHXuYFuI2yfj"><img src="https://prodimage.images-bn.com/pimages/9780142424179_p0_v1_s600x595.jpg" alt="Young Adult" style="width:50%"  class="responsive" height="600"></a>
-                <div><h6>Despite the tumor-shrinking medical miracle that has bought her a few years, Hazel has never been anything but terminal, her final chapter inscribed upon diagnosis. But when a gorgeous plot twist named Augustus Waters suddenly appears at Cancer Kid Support Group, Hazel’s story is about to be completely rewritten.</h6></div>
-        </div>
-    </div>
-    <div class="column">
-            <div class = "content_img">
-                <a href="https://open.spotify.com/playlist/37i9dQZF1DWUVpAXiEPK8P?si=FbhbNR9STwOrpCjnxBgTDQ"><img src="https://upload.wikimedia.org/wikipedia/en/4/45/Life_of_Pi_cover.png" alt="action" style="width:50%"  class="responsive" height="600"></a>
-                <div><h6>The protagonist, Piscine Molitor "Pi" Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.</h6></div>
-        </div>
-    </div>
-    <div class="column">
-            <div class = "content_img">
-                <a href = "https://open.spotify.com/playlist/37i9dQZF1DXdgz8ZB7c2CP?si=uRHG2t64TACAjF1jf-XWOA
-"><img src="https://upload.wikimedia.org/wikipedia/en/1/13/Milk_and_Honey_%28poetry_collection%29.jpg" alt="poetry" style="width:50%" class="responsive" height="600"></a>
-                <div><h6>The book is divided into four chapters, and each chapter serves a different purpose. Deals with a different pain. Heals a different heartache. Milk and Honey takes readers through a journey of the most bitter moments in life and finds sweetness in them because there is sweetness everywhere if you are just willing to look.</h6></div>
-        </div>
-    </div>
-    </div>
-    <br>
-    <div class="row">
-    <div class="column">
-        <div class = "content_img">
-            <a href =https://open.spotify.com/playlist/4RR2fVanqsLko09Ejylfnm><img src="https://agathachristie.imgix.net/hcuk-paperback/And-Then-There-Were-None.JPG?auto=compress,format&fit=clip&q=65&w=200" alt="Mystery" style="width:50%"  class="responsive" height="600"></a>
-            <div><h6>The story follows 10 strangers who receive an unusual invitation to a solitary mansion based remotely off Britain's Devon Coast. Cut off from the outside world, the group arrives at its destination, only to find that darkness awaits them. As people start to mysteriously die, the members of the group realize there is a killer among them.</h6></div>
-        </div>
-    </div>
-    <div class="column">
-        <div class = "content_img">
-            <a href="https://open.spotify.com/playlist/37i9dQZF1DX91oIci4su1D?si=eBr-pb52QN2-kv8GH4X8Cg"><img src="https://covers.openlibrary.org/b/id/8473692-L.jpg"" alt="Scifi" style="width:50%"  class="responsive" height="600"></a>
-            <div><h6> Set at an unspecified date in Earth's future, an imperiled humankind after two conflicts with the Formics, an insectoid alien species dubbed the "buggers". In preparation for an anticipated third invasion, children, including Andrew "Ender" Wiggin, are trained from a very young age by putting them through increasingly difficult games, including some in zero gravity.</h6></div>
-        </div>
-    </div>
-    <div class="column">
-        <div class = "content_img">
-            <a href = "https://open.spotify.com/playlist/37i9dQZF1DWZUAeYvs88zc"><img src="https://www.amazon.com/images/I/516IbJ592JL._SY346_.jpg" alt="drama" style="width:50%"  class="responsive" height="600"></a>
-            <div><h6>Compassionate, dramatic, and deeply moving, To Kill A Mockingbird takes readers to the roots of human behavior - to innocence and experience, kindness and cruelty, love and hatred, humor and pathos.</h6></div>
-        </div>
-    </div>
-    </div>
-</div>
-<button onclick="topFunction()" id="myBtn" title="Top">↑Back to The Top</button>
-<script>
-//Get the button
-var mybutton = document.getElementById("myBtn");
+		<div class="sidenav">
+			<a href="#Library">Library<i class="fa fa-book"></i></a>
+			<a href="#collections">Collections<i class='far fa-bookmark'></i></a>
+			<a href="#playlists">Generate Playlists<i class='fab fa-spotify' style='font-size:24px'></i></a>
+			<a href="#explore">Explore<i class="fa fa-search"></i></a>
+			<a href="#profile">Profile<i class='fas fa-user'></i></a>
+		</div>
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+		<header>
+			<h2>ReadHot<i class="fa fa-book"></i></h2>
+		</header>
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
+		<div class="main">
+			<b><center><h1>LIBRARY</h1></center></b>
+			<center><h3> Here in your library you can hover each book for a brief description & click each one for a demo playlist</h3></center>
+			<div class="row">
+				<div class="column">
+					<div class="content_img">
+						<a href= "https://open.spotify.com/playlist/0zjGLygoBmpafEsGtk5n1a"><img src="https://www.amazon.com/images/I/51jNORv6nQL._SX340_BO1,204,203,200_.jpg" alt="Fantasy" style="width:50%"  class="responsive" height="600"></a>
+						<div><h6>Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry.</h6></div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="content_img">
+						<a href="https://open.spotify.com/playlist/37i9dQZF1DX50QitC6Oqtn"><img src="https://prodimage.images-bn.com/pimages/9781534438378_p0_v4_s600x595.jpg" alt="Romance" style="width:50%"  class="responsive" height="600"></a>
+						<div><h6>Lara Jean keeps her love letters in a hatbox her mother gave her. One for every boy she’s ever loved. When she writes, she can pour out her heart and soul and say all the things she would never say in real life, because her letters are for her eyes only. Until the day her secret letters are mailed, and suddenly Lara Jean’s love life goes from imaginary to out of control. </h6></div>
+					</div>
+				</div>
+				<div class="column">
+					<div class ="content_img">
+						<a href = "https://open.spotify.com/album/7Ae2JYIXnbn5wr2k9rQCOi"><img src="https://upload.wikimedia.org/wikipedia/en/6/62/Silence3.png" alt="Horror" style="width:50%" class="responsive" height="600"></a>
+						<div><h6>As part of the search for a serial murderer nicknames "Buffalo Bill," FBI trainee Clarice Starling is given an assignment. She must visit a man confined to a high-security facility for the criminally insane and interview him. That man, Dr. Hannibal Lecter, is a former psychiatrist with unusual tastes and an intense curiosity about the darker corners of the mind. </h6></div>
+					</div>
+				</div>
+			</div>
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
+			<div class="row">
+				<div class="column">
+					<div class ="content_img">
+						<a href ="https://open.spotify.com/album/7bXOViTvx6EHXuYFuI2yfj"><img src="https://prodimage.images-bn.com/pimages/9780142424179_p0_v1_s600x595.jpg" alt="Young Adult" style="width:50%"  class="responsive" height="600"></a>
+						<div><h6>Despite the tumor-shrinking medical miracle that has bought her a few years, Hazel has never been anything but terminal, her final chapter inscribed upon diagnosis. But when a gorgeous plot twist named Augustus Waters suddenly appears at Cancer Kid Support Group, Hazel’s story is about to be completely rewritten.</h6></div>
+					</div>
+				</div>
+				<div class="column">
+					<div class = "content_img">
+						<a href="https://open.spotify.com/playlist/37i9dQZF1DWUVpAXiEPK8P?si=FbhbNR9STwOrpCjnxBgTDQ"><img src="https://upload.wikimedia.org/wikipedia/en/4/45/Life_of_Pi_cover.png" alt="action" style="width:50%"  class="responsive" height="600"></a>
+						<div><h6>The protagonist, Piscine Molitor "Pi" Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.</h6></div>
+					</div>
+				</div>
+				<div class="column">
+					<div class = "content_img">
+						<a href = "https://open.spotify.com/playlist/37i9dQZF1DXdgz8ZB7c2CP?si=uRHG2t64TACAjF1jf-XWOA"><img src="https://upload.wikimedia.org/wikipedia/en/1/13/Milk_and_Honey_%28poetry_collection%29.jpg" alt="poetry" style="width:50%" class="responsive" height="600"></a>
+						<div><h6>The book is divided into four chapters, and each chapter serves a different purpose. Deals with a different pain. Heals a different heartache. Milk and Honey takes readers through a journey of the most bitter moments in life and finds sweetness in them because there is sweetness everywhere if you are just willing to look.</h6></div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="column">
+					<div class = "content_img">
+						<a href =https://open.spotify.com/playlist/4RR2fVanqsLko09Ejylfnm><img src="https://agathachristie.imgix.net/hcuk-paperback/And-Then-There-Were-None.JPG?auto=compress,format&fit=clip&q=65&w=200" alt="Mystery" style="width:50%"  class="responsive" height="600"></a>
+						<div><h6>The story follows 10 strangers who receive an unusual invitation to a solitary mansion based remotely off Britain's Devon Coast. Cut off from the outside world, the group arrives at its destination, only to find that darkness awaits them. As people start to mysteriously die, the members of the group realize there is a killer among them.</h6></div>
+					</div>
+				</div>
+				<div class="column">
+					<div class = "content_img">
+						<a href="https://open.spotify.com/playlist/37i9dQZF1DX91oIci4su1D?si=eBr-pb52QN2-kv8GH4X8Cg"><img src="https://covers.openlibrary.org/b/id/8473692-L.jpg"" alt="Scifi" style="width:50%"  class="responsive" height="600"></a>
+						<div><h6> Set at an unspecified date in Earth's future, an imperiled humankind after two conflicts with the Formics, an insectoid alien species dubbed the "buggers". In preparation for an anticipated third invasion, children, including Andrew "Ender" Wiggin, are trained from a very young age by putting them through increasingly difficult games, including some in zero gravity.</h6></div>
+					</div>
+				</div>
+				<div class="column">
+					<div class = "content_img">
+						<a href = "https://open.spotify.com/playlist/37i9dQZF1DWZUAeYvs88zc"><img src="https://www.amazon.com/images/I/516IbJ592JL._SY346_.jpg" alt="drama" style="width:50%"  class="responsive" height="600"></a>
+						<div><h6>Compassionate, dramatic, and deeply moving, To Kill A Mockingbird takes readers to the roots of human behavior - to innocence and experience, kindness and cruelty, love and hatred, humor and pathos.</h6></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button onclick="topFunction()" id="myBtn" title="Top">↑Back to The Top</button>
+
+		<script>
+		//Get the button
+		var mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+		</script>
 
     </body>
 </html>
