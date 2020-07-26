@@ -6,187 +6,177 @@
         <link href='https://fonts.googleapis.com/css?family=Krona One' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!-- <link rel="stylesheet" href="/static/css/styles.css"> -->
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="library_style.css">
         <style>
+* {
+  box-sizing: border-box;
+}
 
-		* {
-			box-sizing: border-box;
-		}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 20px;
+}
 
-		.column {
-			float: left;
-			width: 33.33%;
-			padding: 20px;
-		}
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.responsive {
+  width: 100px;
+  height: 400px;
+}
+.content_img {
+  display: block;
+  width: 100px;
+  height: 400px;
+}
+.sidenav {
+  height: 100%;
+  width: 206px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #da9194;
+  overflow-x: hidden;
+  padding-top: 20px;
+  opacity:
+}
 
-		/* Clearfix (clear floats) */
-		.row::after {
-			content: "";
-			clear: both;
-			display: table;
-		}
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  font-family:'Bebas Neue';
+  color: #FFFDD0;
+  display: block;
+}
 
-		.responsive {
-			width: 100px;
-			height: 400px;
-		}
+.sidenav a:hover {
+  color: #9e3539;
+}
+body{
+     background-color: #FFFDD0;
+}
+.main {
+  margin-left: 460px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
 
-		.content_img {
-			display: block;
-			width: 100px;
-			height: 400px;
-		}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+img:hover{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+-moz-box-shadow:    0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+box-shadow:         0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+}
+img:last-of-type:hover{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(232, 0, 0, 0.67);
+-moz-box-shadow:    0px 0px 30px 0px rgba(232, 0, 0, 0.67);
+box-shadow:         0px 0px 30px 0px rgba(232, 0, 0, 0.67);
+}
 
-		.sidenav {
-			height: 100%;
-			width: 206px;
-			position: fixed;
-			z-index: 1;
-			top: 0;
-			left: 0;
-			background-color: #da9194;
-			overflow-x: hidden;
-			padding-top: 20px;
-		}
+/* Parent Container */
+.content_img{
+ position: relative;
+ width: 500px;
+ height: 500px;
+ float: left;
+ margin-right: 10px;
+}
 
-		.sidenav a {
-			padding: 6px 8px 6px 16px;
-			text-decoration: none;
-			font-size: 30px;
-			font-family:'Bebas Neue';
-			color: #FFFDD0;
-			display: block;
-		}
+/* Child Text Container */
+.content_img div{
+ position: absolute;
+ top:30%;
+ bottom: 30%;
+ background: black;
+ color: white;
+ margin-bottom: 5px;
+ font-family:'Open Sans';
+ opacity: 0;
+ visibility: hidden;
+ -webkit-transition: visibility 0s, opacity 0.5s linear;
+ transition: visibility 0s, opacity 0.5s linear;
+ width: 100px;
+ height: 250px;
+}
 
-		.sidenav a:hover {
-			color: #9e3539;
-		}
+/* Hover on Parent Container */
+.content_img:hover{
+ cursor: pointer;
+}
 
-		body {
-			background-color: #FFFDD0;
-		}
+.content_img:hover div{
+ width: 250px;
+ padding: 8px 15px;
+ visibility: visible;
+ opacity: 0.7;
+}
+h1{
+    font-family: 'Montserrat';
+    font-size: 45px;
+}
+h3{
+    font-family: 'Lato';
+    font-size: 28px;
+}
+h6{
+    font-family:'Lato';
+    font-size: 15.5px;
+}
+header {
+  background-color: #C7585C;
+  padding: 30px;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  width: 1850px;
+  box-shadow: 10px 5px 5px #cc9c93;
+}
+h2{
+    font-family: 'Bebas Neue';
+    font-size: 50px;
+}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 20px;
+  font-family: 'Bebas Neue';
+  border: none;
+  outline: none;
+  background-color: #d0ffd9;
+  color: gray;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
 
-		.main {
-			margin-left: 460px; /* Same as the width of the sidenav */
-			font-size: 28px; /* Increased text to enable scrolling */
-			padding: 0px 10px;
-		}
-
-		@media screen and (max-height: 450px) {
-			.sidenav {padding-top: 15px;}
-			.sidenav a {font-size: 18px;}
-		}
-
-		img:hover{
-			-webkit-border-radius: 10px;
-			-moz-border-radius: 10px;
-			border-radius: 10px;
-			-webkit-box-shadow: 0px 0px 30px 0px rgba(0, 255, 0, 0.67);
-			-moz-box-shadow:    0px 0px 30px 0px rgba(0, 255, 0, 0.67);
-			box-shadow:         0px 0px 30px 0px rgba(0, 255, 0, 0.67);
-		}
-
-		img:last-of-type:hover{
-			-webkit-border-radius: 10px;
-			-moz-border-radius: 10px;
-			border-radius: 10px;
-			-webkit-box-shadow: 0px 0px 30px 0px rgba(232, 0, 0, 0.67);
-			-moz-box-shadow:    0px 0px 30px 0px rgba(232, 0, 0, 0.67);
-			box-shadow:         0px 0px 30px 0px rgba(232, 0, 0, 0.67);
-		}
-
-		/* Parent Container */
-		.content_img{
-			position: relative;
-			width: 500px;
-			height: 500px;
-			float: left;
-			margin-right: 10px;
-		} 
-
-		/* Child Text Container */
-		.content_img div{
-			position: absolute;
-			top: 30%;
-			bottom: 30%;
-			background: black;
-			color: white;
-			margin-bottom: 5px;
-			font-family:'Open Sans';
-			opacity: 0;
-			visibility: hidden;
-			-webkit-transition: visibility 0s, opacity 0.5s linear; 
-			transition: visibility 0s, opacity 0.5s linear;
-			width: 100px;
-			height: 250px;
-		}
-
-		/* Hover on Parent Container */
-		.content_img:hover{
-			cursor: pointer;
-		}
-
-		.content_img:hover div{
-			width: 250px;
-			padding: 8px 15px;
-			visibility: visible;
-			opacity: 0.7; 
-		}
-
-		h1 {
-			font-family: 'Montserrat';
-			font-size: 45px;
-		}
-
-		h2 {
-			font-family: 'Bebas Neue';
-			font-size: 50px;
-		}
-
-		h3 {
-			font-family: 'Lato';
-			font-size: 28px;
-		}
-
-		h6 {
-			font-family:'Lato';
-			font-size: 15.5px;
-		}
-
-		header {
-			background-color: #c7585c;
-			padding: 30px;
-			text-align: center;
-			font-size: 50px;
-			color: white;
-			width: 1850px;
-			box-shadow: 10px 5px 5px #DCAE96;
-		}
-
-		#myBtn {
-			display: none;
-			position: fixed;
-			bottom: 20px;
-			right: 30px;
-			z-index: 99;
-			font-size: 20px;
-			font-family: 'Bebas Neue';
-			border: none;
-			outline: none;
-			background-color: #d0ffd9;
-			color: gray;
-			cursor: pointer;
-			padding: 15px;
-			border-radius: 4px;
-		}
-
-		#myBtn:hover {
-			background-color: #555;
-		}
-
-		</style>
+#myBtn:hover {
+  background-color: #555;
+}
+</style>
     </head>
     <body>
 
