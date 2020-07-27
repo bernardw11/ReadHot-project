@@ -3,25 +3,20 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-# from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo
 
 
-# # -- Initialization section --
+# -- Initialization section --
 app = Flask(__name__)
 
-# events = [
-#         {"event":"First Day of Classes", "date":"2019-08-21"},
-#         {"event":"Winter Break", "date":"2019-12-20"},
-#         {"event":"Finals Begin", "date":"2019-12-01"}
-#     ]
 
 # name of database
-# app.config['MONGO_DBNAME'] = 'database-name'
+app.config['MONGO_DBNAME'] = 'ReadHot'
 
 # URI of database
-# app.config['MONGO_URI'] = 'mongo-uri'
+app.config['MONGO_URI'] = 'mongodb+srv://admin:prs2SF3EVpFvOAbR@cluster0.vgebo.mongodb.net/ReadHot>?retryWrites=true&w=majority'
 
-# mongo = PyMongo(app)
+mongo = PyMongo(app)
 
 # -- Routes section --
 # INDEX
