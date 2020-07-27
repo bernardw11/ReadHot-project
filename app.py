@@ -25,17 +25,15 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/library')
 def indexlibrary():
-    return render_template('library_index.html')
+    return render_template('library_index.html', time = datetime.now())
 
-@app.route('/')
 @app.route('/collections')
 def indexcollection():
-    return render_template('collections.html')
+    return render_template('collections.html', time = datetime.now())
 
-@app.route('/')
 @app.route('/playlists')
 def indexplaylist():
-    return render_template('playlists.html')
+    return render_template('playlists.html', time = datetime.now())
 
 
 
