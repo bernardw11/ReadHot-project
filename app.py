@@ -3,44 +3,37 @@
 from flask import Flask, render_template, request
 from datetime import datetime
 from openlibrary import search
+from flask_pymongo import PyMongo
 # from flask_pymongo import PyMongo
 
 
-# # -- Initialization section --
+# -- Initialization section --
 app = Flask(__name__)
 
-# events = [
-#         {"event":"First Day of Classes", "date":"2019-08-21"},
-#         {"event":"Winter Break", "date":"2019-12-20"},
-#         {"event":"Finals Begin", "date":"2019-12-01"}
-#     ]
 
 # name of database
-# app.config['MONGO_DBNAME'] = 'database-name'
+app.config['MONGO_DBNAME'] = 'ReadHot'
 
 # URI of database
-# app.config['MONGO_URI'] = 'mongo-uri'
+app.config['MONGO_URI'] = 'mongodb+srv://admin:prs2SF3EVpFvOAbR@cluster0.vgebo.mongodb.net/ReadHot>?retryWrites=true&w=majority'
 
-# mongo = PyMongo(app)
+mongo = PyMongo(app)
 
 # -- Routes section --
 # INDEX
 
 @app.route('/')
-@app.route('/indexlibrary')
-
+@app.route('/library')
 def indexlibrary():
     return render_template('library_index.html')
 
 @app.route('/')
-@app.route('/indexcollection')
-
+@app.route('/collections')
 def indexcollection():
     return render_template('collections.html')
 
 @app.route('/')
-@app.route('/indexplaylist')
-
+@app.route('/playlists')
 def indexplaylist():
     return render_template('playlists.html')
 
@@ -59,7 +52,6 @@ def searchbooks():
 # CONNECT TO DB, ADD DATA
 
 @app.route('/add')
-
 def add():
     # connect to the database
 
