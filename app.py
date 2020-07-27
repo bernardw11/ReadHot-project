@@ -27,15 +27,15 @@ app = Flask(__name__)
 # INDEX
 
 @app.route('/')
-@app.route('/indexlibrary')
+@app.route('/library')
 
-def indexlibrary():
+def library():
     return render_template('library_index.html')
 
 @app.route('/')
-@app.route('/indexcollection')
+@app.route('/collections')
 
-def indexcollection():
+def collections():
     return render_template('collections.html')
 
 @app.route('/')
