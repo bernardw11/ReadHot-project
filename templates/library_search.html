@@ -12,7 +12,8 @@
         </form>
         {% if books %}
           {% for i in books %}
-            <b>{{i.title}}</b><br>
+            <b>{{i.title}} by {{i.author_name}}</b><br>
+            <div>{{i.isbn}}</div>
             <img src = "http://covers.openlibrary.org/b/isbn/{{i.isbn.0}}-M.jpg"> <br>
             <div>subjects:</div>
             {% for s in i.subject %}

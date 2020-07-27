@@ -1,7 +1,8 @@
 import requests
 
 
-viewbook = "https://openlibrary.org/api/books?bibkeys=ISBN:9780980200447&jscmd=data&format=json"
+isbn = 9780340822777
+viewbook = "https://openlibrary.org/api/books?bibkeys=ISBN:{isbn}&jscmd=data&format=json"
 
 def search(query):
     openlib_query = f"http://openlibrary.org/search.json?q={query}"
@@ -18,9 +19,9 @@ def search(query):
         i += 1
     return viable_books
 
-harry_potter_books = search("harry potter")
-for book in harry_potter_books:
-    print(book['isbn'][0])
-    print(book['title'])
-    print(book['subject'])
-    print(f"http://covers.openlibrary.org/b/isbn/{book['isbn']}-M.jpg")
+# harry_potter_books = search("harry potter")
+# for book in harry_potter_books:
+#     print(book['isbn'][0])
+#     print(book['title'])
+#     print(book['subject'])
+#     print(f"http://covers.openlibrary.org/b/isbn/{book['isbn']}-M.jpg")

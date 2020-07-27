@@ -39,6 +39,9 @@ def collections():
 def playlists():
     return render_template('playlists.html', time = datetime.now())
 
+@app.route('/template')
+def template():
+    return render_template('template.html', time = datetime.now())
 
 @app.route('/library_search', methods = ["GET", "POST"])
 def searchbooks():
