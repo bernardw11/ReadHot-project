@@ -127,13 +127,13 @@ h6{
     font-family:'Lato';
     font-size: 15.5px;
 }
-header {
+header, .full-width {
+  width: 100%;
   background-color: #C7585C;
   padding: 30px;
   text-align: center;
   font-size: 50px;
   color: white;
-  width: 1850px;
   box-shadow: 10px 5px 5px #DCAE96;
 }
 h2{
@@ -160,4 +160,3 @@ h2{
 #myBtn:hover {
   background-color: #555;
 }
-</style>
