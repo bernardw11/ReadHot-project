@@ -12,11 +12,20 @@
 
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
 
 	<title>Hello, world!</title>
 </head>
 
 <body>
+    
+    <div class="sidenav">
+        <a href="/library">Library<i class="fa fa-book"></i></a>
+        <a href="/collections">Collections<i class='far fa-bookmark'></i></a>
+        <a href="/playlists">Generate Playlists<i class='fab fa-spotify' style='font-size:24px'></i></a>
+        <a href="/indexexplore">Explore<i class="fa fa-search"></i></a>
+        <a href="/indexprofile">Profile<i class='fas fa-user'></i></a>
+    </div>
 	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #c7585c;">
 		<a class="navbar-brand" href="#" style="font-family: 'Audiowide', cursive; font-size: 40px">ReadHot</a>
 
@@ -41,8 +50,7 @@
 
     {% block content %}
     {% endblock %}
-    </div>
-
+ 
     <script src="script.js"></script>
 
     <!-- Optional JavaScript -->
