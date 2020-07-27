@@ -22,27 +22,23 @@ mongo = PyMongo(app)
 # INDEX
 
 @app.route('/')
-@app.route('/indexlibrary')
-
+@app.route('/library')
 def indexlibrary():
     return render_template('library_index.html')
 
 @app.route('/')
-@app.route('/indexcollection')
-
+@app.route('/collections')
 def indexcollection():
     return render_template('collections.html')
 
 @app.route('/')
-@app.route('/indexplaylist')
-
+@app.route('/playlists')
 def indexplaylist():
     return render_template('playlists.html')
 
 # CONNECT TO DB, ADD DATA
 
 @app.route('/add')
-
 def add():
     # connect to the database
 
