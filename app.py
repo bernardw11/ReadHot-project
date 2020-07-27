@@ -1,8 +1,8 @@
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
-from flask import Flask
-from flask import render_template
-from flask import request
+from flask import Flask, render_template, request
+from datetime import datetime
+from openlibrary import search
 # from flask_pymongo import PyMongo
 
 
@@ -43,6 +43,18 @@ def indexcollection():
 
 def indexplaylist():
     return render_template('playlists.html')
+
+
+
+
+@app.route('/library_search', methods = ["GET", "POST"])
+def searchbooks():
+    if request.method == "POST":
+        searchquery = request.form['bookchoice']
+        books = search(searchquery)
+        return render_template("library_search.html", time = datetime.now(), books = books)
+    else:
+        return render_template("library_search.html", time = datetime.now())
 
 # CONNECT TO DB, ADD DATA
 
