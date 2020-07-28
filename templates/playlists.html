@@ -2,5 +2,8 @@
 {% block title %} Playlists {% endblock %}
 
 {% block content %}
-content
+    <form method="post" action="/playlists">
+        <input type="text" name="feature" placeholder="Enter feature"/>
+        <input type="submit" value="Submit"/>
+    </form>
 {% endblock %}

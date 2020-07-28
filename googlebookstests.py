@@ -11,6 +11,8 @@ def search(title):
     viable_books = []
     for book in list_of_books:
         info = book['volumeInfo']
+        if 'authors' not in info:
+            info['authors'] = "Author Not Available"
         if 'industryIdentifiers' in info:
             if 'imageLinks' not in info:
                 info['imageLinks'] = {}

@@ -2,11 +2,12 @@
 # -- Import section --
 from flask import Flask, render_template, request
 from datetime import datetime
-#from openlibrary import search
+
 from googlebookstests import search
 from openlibrary import findsubjects
+#import spotifytests
+
 from flask_pymongo import PyMongo
-# from flask_pymongo import PyMongo
 
 
 # -- Initialization section --
@@ -37,9 +38,13 @@ def collections():
 
 
 
-@app.route('/playlists')
-def playlists():
-    return render_template('playlists.html', time = datetime.now())
+# @app.route('/playlists'. methods = ["GET", "POST"])
+# def playlists():
+#     if request.method == "POST":
+#         feature = request.form['feature']
+#
+#
+#     return render_template('playlists.html', time = datetime.now())
 
 @app.route('/template')
 def template():
@@ -54,8 +59,9 @@ def searchbooks():
     else:
         return render_template("library_search.html", time = datetime.now())
 
-# CONNECT TO DB, ADD DATA
 
+
+# CONNECT TO DB, ADD DATA
 @app.route('/add')
 def add():
     # connect to the database

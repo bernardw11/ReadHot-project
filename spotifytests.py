@@ -7,9 +7,8 @@ redirect_uri = 'http://127.0.0.1:5000/callback/q'
 scope = "user-library-read playlist-modify"
 
 sp2 = spotipy.Spotify(auth_manager = SpotifyOAuth(scope = scope,
-    client_id = client_id, client_secret = client_secret, redirect_uri = redirect_uri, username = "bernardohiggins11"))
+    client_id = client_id, client_secret = client_secret, redirect_uri = redirect_uri, username = "test_username"))
 user_id = sp2.current_user()['id']
-print(f"user id: {user_id}")
 
 
 #all_music is your library
