@@ -3,20 +3,37 @@
 
 {% block content %}
     <h1>Welcome to ReadHot's temporary search page!</h1>
-    <p>Enter something to search! <a href = '/library_search'>clear</a></p>
+    <p>Enter something to search! <a href = '/library_search'>clear this page</a></p>
     <form method="post" action="/library_search">
         <input type="text" name="bookchoice" placeholder="Search books"/>
         <input type="submit" value="Submit"/>
     </form>
+
     {% if books %}
-        {% for i in books %}
-            <b>{{i.title}} by {{i.author_name}}</b><br>
-            <div>{{i.isbn}}</div>
-            <img src = "http://covers.openlibrary.org/b/isbn/{{i.isbn.0}}-M.jpg"> <br>
-            <div>subjects:</div>
-            {% for s in i.subject %}
-                <div>&emsp; {{s}}</div>
-            {% endfor %}
-        {% endfor %}
+      {% for i in books %}
+          <b>{{i.volumeInfo.title}} by {{i.volumeInfo.authors}}</b><br>
+          <div>{{i.volumeInfo.description}}</div>
+          <div>{{i.volumeInfo.industryIdentifiers.0.identifier}}</div>
+          <img src = "{{i.volumeInfo.imageLinks.thumbnail}}" width = "128"> <br>
+          <div>SUBJECTS:</div>
+          {% for key, value in i.volumeInfo.subject.items() %}
+              <div>&emsp; {{key}} - {{value}}</div>
+          {% endfor %}
+      {% endfor %}
     {% endif %}
+
+
 {% endblock %}
+
+<!-- The below is for if we search w openlibrary
+{% if books %}
+    {% for i in books %}
+        <b>{{i.title}} by {{i.author_name}}</b><br>
+        <div>{{i.isbn}}</div>
+        <img src = "http://covers.openlibrary.org/b/isbn/{{i.isbn.0}}-M.jpg"> <br>
+        <div>subjects:</div>
+        {% for s in i.subject %}
+            <div>&emsp; {{s}}</div>
+        {% endfor %}
+    {% endfor %}
+{% endif %} -->

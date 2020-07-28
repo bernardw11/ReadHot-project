@@ -22,13 +22,14 @@
     </head>
 
     <body>
+      <!--
         <div class="sidenav">
             <a href="/library">Library<i class="fa fa-book"></i></a>
             <a href="/collections">Collections<i class='far fa-bookmark'></i></a>
             <a href="/playlists">Generate Playlists<i class='fab fa-spotify' style='font-size:24px'></i></a>
             <a href="/indexexplore">Explore<i class="fa fa-search"></i></a>
             <a href="/indexprofile">Profile<i class='fas fa-user'></i></a>
-        </div>
+        </div> -->
 
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #c7585c;">
     	<a class="navbar-brand" href="#" style="font-family: 'Audiowide', cursive; font-size: 40px">ReadHot <i class="fa fa-book"></i></a>
@@ -55,6 +56,27 @@
       {% block content %}
       {% endblock %}
 
+
+      <button onclick="topFunction()" id="myBtn" title="Top">↑Back to The Top</button>
+      <script>
+      //Get the button
+      var mybutton = document.getElementById("myBtn");
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+      </script>
       <script src="script.js"></script>
 
       <!-- Optional JavaScript -->

@@ -2,7 +2,9 @@
 # -- Import section --
 from flask import Flask, render_template, request
 from datetime import datetime
-from openlibrary import search
+#from openlibrary import search
+from googlebookstests import search
+from openlibrary import findsubjects
 from flask_pymongo import PyMongo
 # from flask_pymongo import PyMongo
 
