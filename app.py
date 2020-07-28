@@ -1,6 +1,6 @@
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, url_for, session
 from datetime import datetime
 
 from googlebookstests import search
@@ -35,8 +35,6 @@ def library():
 
 def collections():
     return render_template('collections.html', time = datetime.now())
-
-
 
 @app.route('/playlists', methods = ["GET", "POST"])
 def playlists():
