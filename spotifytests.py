@@ -100,9 +100,9 @@ def order_playlist(playlist_name, feature):
 The below code is kinda nifty! allows you to go thru any playlist and
 print out the songs in a sorted order.
 '''
-playlist_name = input("Enter a playlist name!\n")
-playlist_feature = input("Enter a track feature!\n")
-order_playlist(playlist_name, playlist_feature)
+#playlist_name = input("Enter a playlist name!\n")
+#playlist_feature = input("Enter a track feature!\n")
+#order_playlist(playlist_name, playlist_feature)
 
 
 #goes through your entire library to find songs that fit the parameters
