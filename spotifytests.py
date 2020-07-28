@@ -24,7 +24,12 @@ def get_danceability(item):
     return get_feature(item, "danceability")
 def get_acousticness(item):
     return get_feature(item, "acousticness")
-
+def get_instrumentalness(item):
+    return get_feature(item, "instrumentalness")
+def get_valence(item):
+    return get_feature(item, "valence")
+def get_tempo(item):
+    return get_feature(item, "tempo")
 #i know, it looks redundant. but this is the only way for sort(key=blah) to work
 def get_feature(item, feature):
     id = item['track']['id']
@@ -44,6 +49,12 @@ def descending_list(tracklist, feature):
         tracklist['items'].sort(key = get_danceability, reverse = True)
     elif feature == "acousticness":
         tracklist['items'].sort(key = get_acousticness, reverse = True)
+    elif feature == "instrumentalness":
+        tracklist['items'].sort(key = get_instrumentalness, reverse = True)
+    elif feature == "valence":
+        tracklist['items'].sort(key = get_valence, reverse = True)
+    elif feature == "tempo":
+        tracklist['items'].sort(key = get_tempo, reverse = True)
     #the if statements rly pain me and ill try and figure out a better way.
     #if yall figure out a way to do the above if statements in a better way..
     #like sort(key = get_feature) with parameters, pls lmk!!!
@@ -89,9 +100,9 @@ def order_playlist(playlist_name, feature):
 The below code is kinda nifty! allows you to go thru any playlist and
 print out the songs in a sorted order.
 '''
-# playlist_name = input("Enter a playlist name!\n")
-# playlist_feature = input("Enter a track feature!\n")
-# order_playlist(playlist_name, playlist_feature)
+playlist_name = input("Enter a playlist name!\n")
+playlist_feature = input("Enter a track feature!\n")
+order_playlist(playlist_name, playlist_feature)
 
 
 #goes through your entire library to find songs that fit the parameters
