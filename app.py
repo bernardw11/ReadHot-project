@@ -1,6 +1,6 @@
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, session
 from datetime import datetime
 
 from googlebookstests import search
@@ -26,7 +26,7 @@ mongo = PyMongo(app)
 # INDEX
 
 @app.route('/')
-@app.route('/library')
+@app.route('/library', methods=['GET', 'POST'])
 
 def library():
     return render_template('library_index.html', time = datetime.now())
@@ -70,3 +70,21 @@ def add():
 
     # return a message to the user
     return ""
+
+
+@app.route('/login-page')
+def login_page():
+    return render_template('login.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    users = mongo.db.users
+    login_user = users.find_one({'name': request.form.get('username', False)})
+
+    if login_user:
+        if request.form['password'] == login_user['password']:
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+        return redirect(url_for('login'))
+    return render_template('signup.html')
