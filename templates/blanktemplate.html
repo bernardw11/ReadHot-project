@@ -32,32 +32,11 @@
                       Welcome, Bernard!
                 </ul> -->
             </div>
-            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="login-page">Welcome, Homie! Login</a>
-                    </li>
-                </ul>
-            </div>
         </nav>
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-2 position-fixed" id="sticky-sidebar">
-                      <div class = "snav">
-                          <a href="/library">Library<i class="fa fa-book"></i></a>
-                          <!-- <a href="/collections">Collections<i class='far fa-bookmark'></i></a> -->
-                          <a href="/playlists">Generate Playlists<i class='fab fa-spotify' style='font-size:24px'></i></a>
-                          <a href="/library_search">Add Book<i class="fa fa-search"></i></a>
-                          <!-- <a href="/indexexplore">Explore (tbc)<i class="fa fa-search"></i></a> -->
-                          <!-- <a href="/indexprofile">Profile<i class='fas fa-user'></i></a> -->
-                      </div>
-                  </div>
-                  <div class="col-10 offset-2" id="main">
-                      {% block content %}
-                      {% endblock %}
-                </div>
-            </div>
-        </div>
+
+        {% block content %}
+        {% endblock %}
+
         <button onclick="topFunction()" id="myBtn" title="Top">↑Back to The Top</button>
         <script>
         //Get the button
