@@ -2,11 +2,14 @@
 {% block title %} Playlists {% endblock %}
 
 {% block content %}
+<br>
     <form method="post" action="/playlists">
         <input type="text" name="feature" placeholder="Enter feature"/>
         <input type="submit" value="Submit"/>
     </form>
+    <br>
     {% if playlistid %}
       {{playlistid}}
+      <iframe src="https://open.spotify.com/embed/playlist/{{playlistid}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     {% endif %}
 {% endblock %}

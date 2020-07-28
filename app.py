@@ -36,8 +36,6 @@ def library():
 def collections():
     return render_template('collections.html', time = datetime.now())
 
-
-
 @app.route('/playlists', methods = ["GET", "POST"])
 def playlists():
     if request.method == "POST":
