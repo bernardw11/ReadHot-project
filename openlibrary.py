@@ -22,13 +22,14 @@ def search(query):
 
 def findsubjects(title, author):
     openlib_query = f"https://openlibrary.org/search.json?q=title%3A{title}+author%3A{author}"
+    print(openlib_query)
     response = requests.get(openlib_query).json()
 
     subjects = {}
     count = 0
 
     #do we want a ceiling?
-    ceiling = min(20, len(response['docs']))
+    ceiling = min(10, len(response['docs']))
     list_of_books  = response['docs'][:ceiling]
     #list_of_books  = response['docs']
     for book in list_of_books:
