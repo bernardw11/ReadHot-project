@@ -23,20 +23,28 @@
   width: 100px;
   height: 400px;
 }
-.sidenav {
+.blue{
+  background-color: blue;
+}
+
+
+/* .sidenav {
+  background-color: #da9194;
+} */
+/* .sidenav {
   height: 100%;
   width: 206px;
   position: fixed;
+  max-width: 20%;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: #da9194;
   overflow-x: hidden;
   padding-top: 20px;
-  opacity:
-}
+} */
 
-.sidenav a {
+/* .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 30px;
@@ -47,20 +55,41 @@
 
 .sidenav a:hover {
   color: #9e3539;
+} */
+.snav {
+  height: 100%;
+  width: 206px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  background-color: #da9194;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.snav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  font-family:'Bebas Neue';
+  color: #FFFDD0;
+  display: block;
+}
+.snav a:hover {
+  color: #9e3539;
 }
 body{
      background-color: #FFFDD0;
 }
-.main {
-  margin-left: 460px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
+/* .main {
+  margin-left: 460px; /* Same as the width of the sidenav
+  font-size: 28px; /* Increased text to enable scrolling
   padding: 0px 10px;
 }
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
-}
+} */
 img:hover{
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;

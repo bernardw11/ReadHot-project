@@ -16,73 +16,75 @@
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="static/css/style.css">
+        <link rel="stylesheet" href="static/css/style.css?q={{ time }}">
 
         <title>{% block title %}{% endblock %}</title>
     </head>
 
     <body>
-      <!--
-        <div class="sidenav">
-            <a href="/library">Library<i class="fa fa-book"></i></a>
-            <a href="/collections">Collections<i class='far fa-bookmark'></i></a>
-            <a href="/playlists">Generate Playlists<i class='fab fa-spotify' style='font-size:24px'></i></a>
-            <a href="/indexexplore">Explore<i class="fa fa-search"></i></a>
-            <a href="/indexprofile">Profile<i class='fas fa-user'></i></a>
-        </div> -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #c7585c;">
-    	<a class="navbar-brand" href="#" style="font-family: 'Audiowide', cursive; font-size: 40px">ReadHot <i class="fa fa-book"></i></a>
-
-    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <!-- <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> -->
-          </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #c7585c;">
+          	<a class="navbar-brand" href="#" style="font-family: 'Audiowide', cursive; font-size: 40px">ReadHot <i class="fa fa-book"></i></a>
+          	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <!-- <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li> -->
+                  </ul>
+              </div>
+          </nav>
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-2 position-fixed" id="sticky-sidebar">
+                      <div class = "snav">
+                          <a href="/library">Library<i class="fa fa-book"></i></a>
+                          <a href="/collections">Collections<i class='far fa-bookmark'></i></a>
+                          <a href="/playlists">Generate Playlists<i class='fab fa-spotify' style='font-size:24px'></i></a>
+                          <a href="/library_search">Search Books<i class="fa fa-search"></i></a>
+                          <a href="/indexexplore">Explore (tbc)<i class="fa fa-search"></i></a>
+                          <a href="/indexprofile">Profile<i class='fas fa-user'></i></a>
+                      </div>
+                  </div>
+                  <div class="col-10 offset-2" id="main">
+                      {% block content %}
+                      {% endblock %}
+                </div>
+            </div>
         </div>
-      </nav>
+        <button onclick="topFunction()" id="myBtn" title="Top">↑Back to The Top</button>
+        <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        window.onscroll = function() {scrollFunction()};
 
-      {% block content %}
-      {% endblock %}
-
-
-      <button onclick="topFunction()" id="myBtn" title="Top">↑Back to The Top</button>
-      <script>
-      //Get the button
-      var mybutton = document.getElementById("myBtn");
-      window.onscroll = function() {scrollFunction()};
-
-      function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
         }
-      }
 
-      // When the user clicks on the button, scroll to the top of the document
-      function topFunction() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-      }
-      </script>
-      <script src="script.js"></script>
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+        </script>
+        <script src="script.js"></script>
 
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </body>
 </html>

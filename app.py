@@ -5,7 +5,7 @@ from datetime import datetime
 
 from googlebookstests import search
 from openlibrary import findsubjects
-#import spotifytests
+import spotifytests
 
 from flask_pymongo import PyMongo
 
@@ -38,13 +38,14 @@ def collections():
 
 
 
-# @app.route('/playlists'. methods = ["GET", "POST"])
-# def playlists():
-#     if request.method == "POST":
-#         feature = request.form['feature']
-#
-#
-#     return render_template('playlists.html', time = datetime.now())
+@app.route('/playlists', methods = ["GET", "POST"])
+def playlists():
+    if request.method == "POST":
+        feature = request.form['feature']
+        playlistid = spotifytests.create_playlist(f"New playlist: {feature}", feature, ">", 0.7)
+        return render_template('playlists.html', time = datetime.now(), playlistid = playlistid)
+    else:
+        return render_template('playlists.html', time = datetime.now())
 
 @app.route('/template')
 def template():

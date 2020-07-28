@@ -89,9 +89,9 @@ def order_playlist(playlist_name, feature):
 The below code is kinda nifty! allows you to go thru any playlist and
 print out the songs in a sorted order.
 '''
-playlist_name = input("Enter a playlist name!\n")
-playlist_feature = input("Enter a track feature!\n")
-order_playlist(playlist_name, playlist_feature)
+# playlist_name = input("Enter a playlist name!\n")
+# playlist_feature = input("Enter a track feature!\n")
+# order_playlist(playlist_name, playlist_feature)
 
 
 #goes through your entire library to find songs that fit the parameters
@@ -125,6 +125,7 @@ def create_playlist(new_playlist_name, feature, sign, level):
     list_of_ids = compile_songs_from_library(feature, sign, level)
     #adds a song
     sp2.user_playlist_add_tracks(user_id, new_playlist_id, list_of_ids)
+    return new_playlist_id
     print(f"added new playlist: {new_playlist_name}!")
 '''the below code searches thru ur library and creates a playlist!'''
 #create_playlist("high acousticness", "acousticness", ">", 0.9)
