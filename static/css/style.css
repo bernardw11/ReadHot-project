@@ -26,8 +26,15 @@
 .blue{
   background-color: blue;
 }
-
-
+.smallcover{
+  width: 8rem;
+}
+.bookcover{
+  width: 10rem;
+}
+.pink{
+  background-color: #da9194;
+}
 /* .sidenav {
   background-color: #da9194;
 } */
@@ -183,7 +190,7 @@ h2{
   display: none;
   position: fixed;
   bottom: 20px;
-  left: 15rem;
+  left: 30px;
   z-index: 99;
   font-size: 20px;
   font-family: 'Bebas Neue';

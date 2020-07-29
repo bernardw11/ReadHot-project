@@ -1,5 +1,5 @@
 {% extends "template.html" %}
-{% block title %} Collections {% endblock %}
+{% block title %} Add Books {% endblock %}
 
 {% block content %}
     <h1>Welcome to ReadHot's temporary search page!</h1>
@@ -11,28 +11,19 @@
 
     {% if books %}
       {% for i in books %}
-          <!-- <b>{{i.volumeInfo.title}} by {{i.volumeInfo.authors[0]}}</b><br>
-          <div>{{i.volumeInfo.description}}</div>
-          <div>{{i.volumeInfo.industryIdentifiers.0.identifier}}</div>
-          <img src = "{{i.volumeInfo.imageLinks.thumbnail}}" width = "128"> <br> -->
-          <!-- <div>SUBJECTS:</div>
-          {% for key, value in i.volumeInfo.subject.items() %}
-              <div>&emsp; {{key}} - {{value}}</div>
-          {% endfor %} -->
           <div class="media my-5">
-            <img class="mr-3" src = "{{i.volumeInfo.imageLinks.thumbnail}}" alt="Generic placeholder image">
+            <img class="mr-3 smallcover" src = "{{i.volumeInfo.imageLinks.thumbnail}}" alt="Generic placeholder image">
             <div class="media-body">
                 <h5 class="mt-0">{{i.volumeInfo.title}} by
                     {{i.volumeInfo.authors[0]}}</h5>
                 {{i.volumeInfo.description}}
                 <br>
                 <form action="/add_book" method="post">
-                    <input type="hidden" name="title" value={{i.volumeInfo.title}}/>
-                    <input type="hidden" name="author" value={{i.volumeInfo.authors[0]}}/>
-                    <input type="hidden" name="description" value={{i.volumeInfo.description}}/>
-                    <input type="hidden" name="subjects" value={{i.volumeInfo.subject}}/>
-                    <input type="hidden" name="isbn" value={{i.volumeInfo.industryIdentifiers.0.identifier}}/>
-                    <input type="hidden" name="coverurl" value={{i.volumeInfo.imageLinks.thumbnail}}/>
+                    <input type="hidden" name="title" value="{{i.volumeInfo.title}}"/>
+                    <input type="hidden" name="author" value="{{i.volumeInfo.authors[0]}}"/>
+                    <input type="hidden" name="description" value="{{i.volumeInfo.description}}"/>
+                    <input type="hidden" name="isbn" value="{{i.volumeInfo.industryIdentifiers.0.identifier}}"/>
+                    <input type="hidden" name="coverurl" value="{{i.volumeInfo.imageLinks.thumbnail}}"/>
                     <button class="btn btn-primary" type="submit" >Add</button>
                     <!-- <button class="btn btn-primary" type="submit" name="playlistid" value="0zjGLygoBmpafEsGtk5n1a">Add (Fake)</button> -->
                 </form>
@@ -43,16 +34,3 @@
 
 
 {% endblock %}
-
-<!-- The below is for if we search w openlibrary
-{% if books %}
-    {% for i in books %}
-        <b>{{i.title}} by {{i.author_name}}</b><br>
-        <div>{{i.isbn}}</div>
-        <img src = "http://covers.openlibrary.org/b/isbn/{{i.isbn.0}}-M.jpg"> <br>
-        <div>subjects:</div>
-        {% for s in i.subject %}
-            <div>&emsp; {{s}}</div>
-        {% endfor %}
-    {% endfor %}
-{% endif %} -->

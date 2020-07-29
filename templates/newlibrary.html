@@ -3,16 +3,16 @@
 
 {% block content %}
 <div class="main">
-    <b><center><h1>LIBRARY</h1></center></b>
-    <center><h3> Here in your library you can hover each book for a brief description & click each one for a demo playlist</h3></center>
+    <!-- <b><center><h1>LIBRARY</h1></center></b>
+    <center><h3> Here in your library you can hover each book for a brief description & click each one for a demo playlist</h3></center> -->
     <div class="row row-cols-6 row-cols-md-8 row-cols-lg-10">
 
         {% for book in books %}
         <div class="col my-4">
-          <div class="card" style="width: 14rem;">
+          <div class="card bookcover">
               <form action="/library" method="post">
                 <button class="btn" type="submit" name="playlistid" value="{{book.playlistid}}">
-                    <img src="{{book.coverurl}}" alt="Submit" class="card-img-top even-height">
+                    <img src="{{book.coverurl}}" alt="Submit" class="card-img-top even-height smallcover">
                 </button>
               </form>
           </div>
