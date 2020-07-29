@@ -58,7 +58,6 @@
 } */
 .snav {
   height: 100%;
-  width: 206px;
   position: fixed;
   z-index: 1;
   left: 0;

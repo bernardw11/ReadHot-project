@@ -27,8 +27,10 @@ mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/library', methods=['GET', 'POST'])
-
 def library():
+    if request.method == "POST":
+        playlistid = request.form['playlistid']
+        return render_template('library_index.html', time = datetime.now(), playlistid = playlistid)
     return render_template('library_index.html', time = datetime.now())
 
 @app.route('/collections')
