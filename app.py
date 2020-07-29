@@ -28,19 +28,16 @@ app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
 @app.route('/')
 @app.route('/library', methods=['GET', 'POST'])
 def library():
-    '''ayoooooooooooooo idt there's a books collection yet
-    collection = mongo.db.books
-    user_books = collection.find({'user': session['username']})'''
     #if ur logged in, use books = user_books and username = session['username'].
     if session.get('username'):
-        username = ""
+        collection = mongo.db.books
+        user_books = collection.find({'user': session['username']})
+
         if request.method == "POST":
             playlistid = request.form['playlistid']
-            return render_template('library_index.html', time = datetime.now(), playlistid = playlistid, username = session.get('username'))
-            #return render_template('library_index.html', time = datetime.now(), playlistid = playlistid, username = session.get('username'), books = user_books)
+            return render_template('library_index.html', time = datetime.now(), playlistid = playlistid, username = session.get('username'), books = user_books)
         else:
-            return render_template('library_index.html', time = datetime.now(), username = session.get('username'))
-            #return render_template('library_index.html', time = datetime.now(), username = session.get('username'), books = user_books)
+            return render_template('library_index.html', time = datetime.now(), username = session.get('username'), books = user_books)
     #if ur not logged in, just show the demo page.
     else:
         if request.method == "POST":
