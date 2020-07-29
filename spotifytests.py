@@ -181,7 +181,7 @@ def get_songs_from_playlist(features, playlist_id):
                 print(f"{track['name']} is viable!")
     return viable_songs
 
-def get_tone(text):
+def get_tone(features_dict, text):
     #just for reference
     tone_to_feature = {
         'joy': 'energy',
@@ -196,17 +196,17 @@ def get_tone(text):
     #spotifyfeatures = ['acousticness', 'danceability', 'energy', 'instrumentalness', 'valence', 'tempo']
     tone_input = ToneInput(text)
     tone_dict = service.tone(tone_input=tone_input, content_type="application/json", sentences=False).get_result()
-    return_values = {}
     for tone in tone_dict['document_tone']['tones']:
         tone_name = tone['tone_id']
         feature = tone_to_feature[tone_name]
-        if feature in return_values:
-            return_values[feature].append(tone['score'])
+        if feature in features_dict:
+            features_dict[feature].append(tone['score'])
         else:
             feature_vals = []
             feature_vals.append(tone['score'])
-            return_values[feature] = feature_vals
-    return return_values
+            features_dict[feature] = feature_vals
+    return features_dict
+
 #
 # tone_input = ToneInput('I am very happy. It is a good day.')
 # #tone_input = ToneInput('love')
@@ -230,9 +230,19 @@ def generate_playlist(title, author, description, subjects, username):
         for track in albumdata['items']:
             list_of_song_ids.append(track['id'])
 
-    '''Songs from description tone analyzer is in progress. combine w subjects?'''
-    #get features standards from the description using tone analyzer
-    features = get_tone(description)
+    '''Songs from description & subjects using tone analyzer'''
+    features = {}
+    features = get_tone(features, description)
+    for key in subjects:
+        features = get_tone(features, key)
+
+    final_features = {}
+    for feature, levels in features.items():
+        final_features[feature] = sum(levels) / len(levels)
+        if feature == 'valence':
+            final_features[feature] = 1 - final_features[feature]
+    final_features = squish(final_features)
+
     '''search for playlist id - we need to make a search! then select randoms!
     Maybe search for three playlists to go through?'''
     stuff_id = "50CmpVrHHtTL0e0v2Wvpc4"
@@ -257,19 +267,29 @@ def generate_playlist(title, author, description, subjects, username):
     #sp2.user_playlist_add_tracks(user_id, new_playlist_id, list_of_song_ids)
     #return new_playlist_id
 
-'''
-testing code below! shit do be working doe.
 
-features = get_tone("When Anastasia Steele, a young literature student, interviews wealthy young entrepreneur Christian Grey for her campus magazine, their initial meeting introduces Anastasia to an exciting new world that will change them both forever.")
-print(features)
-stuff_id = "50CmpVrHHtTL0e0v2Wvpc4"
-stuff_songs = get_songs_from_playlist(features, stuff_id)
-print(stuff_songs)
-'''
+'''testing code below! shit do be working doe.'''
 
-sampledict = {'man-woman relationships': 3, 'fiction': 3, 'college students': 1,
-    'fiction / contemporary women': 1, 'sexual dominance and submission': 1,
-    'businessmen': 1, 'adultery': 1, 'fiction / romance / contemporary': 1,
-    'dominance (psychology)': 1, 'protected daisy': 1
-}
+# sampledict = {'man-woman relationships': 3, 'fiction': 3, 'college students': 1,
+#     'fiction / contemporary women': 1, 'sexual dominance and submission': 1,
+#     'businessmen': 1, 'adultery': 1, 'fiction / romance / contemporary': 1,
+#     'dominance (psychology)': 1, 'protected daisy': 1
+# }
+# features = {}
+# features = get_tone(features, "When Anastasia Steele, a young literature student, interviews wealthy young entrepreneur Christian Grey for her campus magazine, their initial meeting introduces Anastasia to an exciting new world that will change them both forever.")
+# print(features)
+# for key in sampledict:
+#     features = get_tone(features, key)
+# print(features)
+# final_features = {}
+# for feature, levels in features.items():
+#     final_features[feature] = sum(levels) / len(levels)
+#     if feature == 'valence':
+#         final_features[feature] = 1 - final_features[feature]
+# print(final_features)
+# stuff_id = "50CmpVrHHtTL0e0v2Wvpc4"
+# stuff_songs = get_songs_from_playlist(features, stuff_id)
+# print(stuff_songs)
+
+
 #generate_playlist("fifty shades of grey", "bruh", sampledict)
