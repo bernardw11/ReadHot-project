@@ -11,14 +11,24 @@
 
     {% if books %}
       {% for i in books %}
-          <b>{{i.volumeInfo.title}} by {{i.volumeInfo.authors}}</b><br>
+          <!-- <b>{{i.volumeInfo.title}} by {{i.volumeInfo.authors[0]}}</b><br>
           <div>{{i.volumeInfo.description}}</div>
           <div>{{i.volumeInfo.industryIdentifiers.0.identifier}}</div>
-          <img src = "{{i.volumeInfo.imageLinks.thumbnail}}" width = "128"> <br>
-          <div>SUBJECTS:</div>
+          <img src = "{{i.volumeInfo.imageLinks.thumbnail}}" width = "128"> <br> -->
+          <!-- <div>SUBJECTS:</div>
           {% for key, value in i.volumeInfo.subject.items() %}
               <div>&emsp; {{key}} - {{value}}</div>
-          {% endfor %}
+          {% endfor %} -->
+          <div class="media my-5">
+            <img class="mr-3" src = "{{i.volumeInfo.imageLinks.thumbnail}}" alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0">{{i.volumeInfo.title}} by 
+                    {{i.volumeInfo.authors[0]}}</h5>
+                {{i.volumeInfo.description}}
+                <br>
+                <input class="btn btn-primary" type="button" value="Input">
+            </div>
+          </div>
       {% endfor %}
     {% endif %}
 
