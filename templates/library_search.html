@@ -26,7 +26,9 @@
                     {{i.volumeInfo.authors[0]}}</h5>
                 {{i.volumeInfo.description}}
                 <br>
-                <input class="btn btn-primary" type="button" value="Input">
+                <form action="/library" method="post">
+                <button class="btn btn-primary" type="submit" name="bookid" value={{i.volumeInfo.industryIdentifiers.0.identifier}}>Add</button>
+                </form>
             </div>
           </div>
       {% endfor %}
