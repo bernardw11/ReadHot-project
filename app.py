@@ -36,9 +36,11 @@ def library():
         username = ""
         if request.method == "POST":
             playlistid = request.form['playlistid']
-            return render_template('library_index.html', time = datetime.now(), playlistid = playlistid, username = session.get('username'), books = user_books)
+            return render_template('library_index.html', time = datetime.now(), playlistid = playlistid, username = session.get('username'))
+            #return render_template('library_index.html', time = datetime.now(), playlistid = playlistid, username = session.get('username'), books = user_books)
         else:
-            return render_template('library_index.html', time = datetime.now(), username = session.get('username'), books = user_books)
+            return render_template('library_index.html', time = datetime.now(), username = session.get('username'))
+            #return render_template('library_index.html', time = datetime.now(), username = session.get('username'), books = user_books)
     #if ur not logged in, just show the demo page.
     else:
         if request.method == "POST":
