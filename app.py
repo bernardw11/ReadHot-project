@@ -108,7 +108,7 @@ def add_book():
 
 @app.route('/login_page')
 def login_page():
-    return render_template('login_page.html')
+    return render_template('login_page.html', time=datetime.now())
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -123,7 +123,7 @@ def login():
             session['display'] = login_user['display']
             return redirect(url_for('library'))
         return redirect(url_for('login_page'))
-    return render_template('signup.html')
+    return render_template('signup.html', time=datetime.now())
 
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
@@ -137,7 +137,7 @@ def signup():
             session['display'] = request.form['display']
             return redirect(url_for('library'))
         return 'That username already exists! Try logging in.'
-    return render_template('signup.html')
+    return render_template('signup.html', time=datetime.now())
 
 @app.route('/logout')
 def logout():

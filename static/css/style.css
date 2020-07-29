@@ -86,8 +86,8 @@
 .snav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 30px;
-  font-family:'Bebas Neue';
+  font-size: 24px;
+  font-family: 'Nunito', sans-serif;
   color: #FFFDD0;
   display: block;
 }
@@ -169,6 +169,17 @@ h3{
     font-family: 'Lato';
     font-size: 28px;
 }
+
+h5 {
+    font-family: 'Nunito', sans-serif;   
+    font-weight: bold;
+}
+
+label, button {
+    font-family: 'Nunito', sans-serif;   
+    font-weight: normal;
+}
+
 h6{
     font-family:'Lato';
     font-size: 15.5px;
