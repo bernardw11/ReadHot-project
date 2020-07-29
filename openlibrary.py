@@ -22,7 +22,7 @@ def search(query):
 
 def findsubjects(title, author):
     openlib_query = f"https://openlibrary.org/search.json?q=title%3A{title}+author%3A{author}"
-    print(openlib_query)
+    #print(openlib_query)
     response = requests.get(openlib_query).json()
 
     subjects = {}

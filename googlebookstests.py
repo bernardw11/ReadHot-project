@@ -22,6 +22,7 @@ def search(title):
                 info['imageLinks']['thumbnail'] = "/static/img/default_book_cover.jpg"
             info['title'] = info['title'].translate(str.maketrans('', '', string.punctuation))
             info['subject'] = findsubjects(info['title'], info['authors'][0])
+            #print(info['subject'])
             viable_books.append(book)
     return viable_books
 
