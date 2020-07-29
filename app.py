@@ -13,7 +13,6 @@ from flask_pymongo import PyMongo
 # -- Initialization section --
 app = Flask(__name__)
 
-
 # name of database
 app.config['MONGO_DBNAME'] = 'ReadHot'
 
@@ -24,17 +23,31 @@ mongo = PyMongo(app)
 
 # -- Routes section --
 # INDEX
+app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
 
 @app.route('/')
 @app.route('/library', methods=['GET', 'POST'])
 def library():
-    if request.method == "POST":
-        playlistid = request.form['playlistid']
-        return render_template('library_index.html', time = datetime.now(), playlistid = playlistid)
-    return render_template('library_index.html', time = datetime.now())
+    '''ayoooooooooooooo idt there's a books collection yet
+    collection = mongo.db.books
+    user_books = collection.find({'user': session['username']})'''
+    #if ur logged in, use books = user_books and username = session['username'].
+    if session.get('username'):
+        username = ""
+        if request.method == "POST":
+            playlistid = request.form['playlistid']
+            return render_template('library_index.html', time = datetime.now(), playlistid = playlistid, username = session.get('username'), books = user_books)
+        else:
+            return render_template('library_index.html', time = datetime.now(), username = session.get('username'), books = user_books)
+    #if ur not logged in, just show the demo page.
+    else:
+        if request.method == "POST":
+            playlistid = request.form['playlistid']
+            return render_template('library_index.html', time = datetime.now(), playlistid = playlistid,)
+        else:
+            return render_template('library_index.html', time = datetime.now())
 
 @app.route('/collections')
-
 def collections():
     return render_template('collections.html', time = datetime.now())
 
@@ -73,19 +86,38 @@ def add():
     return ""
 
 
-@app.route('/login-page')
+@app.route('/login_page')
 def login_page():
-    return render_template('login.html')
+    return render_template('login_page.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     users = mongo.db.users
-    login_user = users.find_one({'name': request.form.get('username', False)})
+    login_user = users.find_one({'name': request.form['username']})
+    #login_user = users.find_one({'name': request.form.get('username', False)})
 
     if login_user:
         if request.form['password'] == login_user['password']:
             session['username'] = request.form['username']
-            return redirect(url_for('index'))
-        return redirect(url_for('login'))
+            return redirect(url_for('library'))
+        return redirect(url_for('login_page'))
     return render_template('signup.html')
+
+@app.route('/signup', methods=['POST', 'GET'])
+def signup():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name' : request.form['username']})
+
+        if existing_user is None:
+            users.insert({'name' : request.form['username'], 'password' : request.form['password']})
+            session['username'] = request.form['username']
+            return redirect(url_for('library'))
+        return 'That username already exists! Try logging in.'
+    return render_template('signup.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login_page'))

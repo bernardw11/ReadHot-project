@@ -1,0 +1,12 @@
+{% extends 'blanktemplate.html' %}
+
+{% block content %}
+    <h1>SIGN UP for readhot lol temp</h1>
+    <form action="/signup" method="POST">
+        <label for="username">Email</label>
+        <input type="text" name="username">
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <input type="submit" value="Sign Up">
+    </form>
+{% endblock %}

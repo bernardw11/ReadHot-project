@@ -56,6 +56,16 @@
 .sidenav a:hover {
   color: #9e3539;
 } */
+.pnav {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  background-color: #da9194;
+  overflow-x: hidden;
+  padding-top: 20px;
+  width: 25%
+}
 .snav {
   height: 100%;
   position: fixed;
@@ -173,7 +183,7 @@ h2{
   display: none;
   position: fixed;
   bottom: 20px;
-  right: 30px;
+  left: 15rem;
   z-index: 99;
   font-size: 20px;
   font-family: 'Bebas Neue';
