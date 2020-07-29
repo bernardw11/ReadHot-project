@@ -17,7 +17,7 @@ app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'ReadHot'
 
 # URI of database
-app.config['MONGO_URI'] = 'mongodb+srv://admin:prs2SF3EVpFvOAbR@cluster0.vgebo.mongodb.net/ReadHot>?retryWrites=true&w=majority'
+app.config['MONGO_URI'] = 'mongodb+srv://admin:prs2SF3EVpFvOAbR@cluster0.vgebo.mongodb.net/ReadHot?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
