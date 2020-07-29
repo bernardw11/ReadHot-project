@@ -76,8 +76,32 @@ def searchbooks():
 
 
 # CONNECT TO DB, ADD DATA
-@app.route('/add')
-def add():
+@app.route('/add_book', methods = ['GET', 'POST'])
+def add_book():
+    if request.method == "POST":
+        title = request.form['title']
+        author = request.form['author']
+        description = request.form['description']
+        subjects = request.form['subjects']
+        isbn = request.form['isbn']
+        coverurl = request.form['coverurl']
+
+        user = session['username']
+
+        #playlistid = spotifytests.generate_playlist(title, author, description, subjects, user)
+        collection = mongo.db.books
+        collection.insert({
+            'title': title,
+            'author': author,
+            'description': description,
+            'subjects': subjects,
+            'isbn': isbn,
+            'coverurl': coverurl,
+            'user': user,
+            #'playlistid': playlistid
+        })
+
+        return redirect(url_for('library'))
     # connect to the database
 
     # insert new data

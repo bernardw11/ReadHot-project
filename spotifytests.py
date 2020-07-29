@@ -255,6 +255,7 @@ def generate_playlist(title, author, description, subjects, username):
     if len(list_of_song_ids) > 30:
         list_of_song_ids = list_of_song_ids[:30]
     #sp2.user_playlist_add_tracks(user_id, new_playlist_id, list_of_song_ids)
+    #return new_playlist_id
 
 '''
 testing code below! shit do be working doe.

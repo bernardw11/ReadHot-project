@@ -22,13 +22,19 @@
           <div class="media my-5">
             <img class="mr-3" src = "{{i.volumeInfo.imageLinks.thumbnail}}" alt="Generic placeholder image">
             <div class="media-body">
-                <h5 class="mt-0">{{i.volumeInfo.title}} by 
+                <h5 class="mt-0">{{i.volumeInfo.title}} by
                     {{i.volumeInfo.authors[0]}}</h5>
                 {{i.volumeInfo.description}}
                 <br>
                 <form action="/library" method="post">
-                <button class="btn btn-primary" type="submit" name="bookid" value={{i.volumeInfo.industryIdentifiers.0.identifier}}>Add</button>
-                <button class="btn btn-primary" type="submit" name="playlistid" value="0zjGLygoBmpafEsGtk5n1a">Add (Fake)</button>
+                    <input type="hidden" name="title" value={{i.volumeInfo.title}}/>
+                    <input type="hidden" name="author" value={{i.volumeInfo.authors[0]}}/>
+                    <input type="hidden" name="description" value={{i.volumeInfo.description}}/>
+                    <input type="hidden" name="subjects" value={{i.volumeInfo.subject}}/>
+                    <input type="hidden" name="isbn" value={{i.volumeInfo.industryIdentifiers.0.identifier}}/>
+                    <input type="hidden" name="coverurl" value={{i.volumeInfo.imageLinks.thumbnail}}/>
+                    <button class="btn btn-primary" type="submit" name="bookid" value={{i.volumeInfo.industryIdentifiers.0.identifier}}>Add</button>
+                    <button class="btn btn-primary" type="submit" name="playlistid" value="0zjGLygoBmpafEsGtk5n1a">Add (Fake)</button>
                 </form>
             </div>
           </div>
