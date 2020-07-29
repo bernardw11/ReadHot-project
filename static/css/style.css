@@ -175,7 +175,7 @@ h5 {
     font-weight: bold;
 }
 
-label, button {
+label, button, p, #text {
     font-family: 'Nunito', sans-serif;   
     font-weight: normal;
 }
