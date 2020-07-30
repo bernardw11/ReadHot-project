@@ -3,11 +3,33 @@
 
 {% block content %}
     <!-- <h1>Welcome to ReadHot's temporary search page!</h1> -->
-    <p>Enter something to search! <a href = '/library_search'>clear this page</a></p>
-    <form method="post" action="/library_search">
-        <input type="text" name="bookchoice" placeholder="Search books"/>
-        <input type="submit" value="Submit"/>
+    <!-- <p>Enter something to search! <a href = '/library_search'>clear this page</a></p> -->
+    <div class="py-4">
+    <form method="post" action="/library_search" class="form-inline">
+        <input type="text" class="form-control mb-2 mr-sm-2" name="bookchoice" placeholder="Search for a book"/>
+        <button type="submit" value="Submit" class="btn btn-danger mb-2"/>Submit</button>
     </form>
+    <!-- <form class="form-inline">
+        <label class="sr-only" for="inlineFormInputName2">Name</label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+
+        <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+        <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+        </div>
+
+        <div class="form-check mb-2 mr-sm-2">
+            <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+            <label class="form-check-label" for="inlineFormCheck">
+            Remember me
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </form> -->
 
     {% if books %}
       {% for i in books %}
@@ -29,6 +51,7 @@
                 </form>
             </div>
           </div>
+        </div>
       {% endfor %}
     {% endif %}
 
