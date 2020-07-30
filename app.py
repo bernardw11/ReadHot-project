@@ -44,7 +44,7 @@ def library():
     #if ur not logged in, send to login page.
     #we used to send them to the demo page but nah.
     else:
-        return redirect(url_for('login'))
+        return redirect(url_for('login_page'))
         # if request.method == "POST":
         #     playlistid = request.form['playlistid']
         #     return render_template('library_index.html', time = datetime.now(), playlistid = playlistid)
