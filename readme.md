@@ -1,5 +1,6 @@
 # ReadHot, presented by BAM — Bernard, Alison, Mehrab
 Created for Fintech Focus 2020
+
 [Heroku Link](https://readhot.herokuapp.com/)
 
 [Our Google Slides Presentation](https://docs.google.com/presentation/d/1lGElcAH23oDD8ZOdMwcQQzE1ZvBv0rrvvj-nSWeqdV0/edit?usp=sharing)
