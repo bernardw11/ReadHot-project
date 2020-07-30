@@ -6,5 +6,5 @@ Created for Fintech Focus 2020
 Here are a few photos!
 ---
 ![Library](static/img/libraryimg.PNG?raw=true "Library")
-![Search](static/img/searchingimg.PNG?raw=true "Search")
+![Search](static/img/searching.PNG?raw=true "Search")
 ![API Breakdown](static/img/apisimg.PNG?raw=true "API Breakdown")
