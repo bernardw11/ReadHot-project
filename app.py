@@ -41,13 +41,15 @@ def library():
             return render_template('newlibrary.html', time = datetime.now(), playlistid = playlistid, title=title, author=author, coverurl=coverurl, username = session.get('username'), books = user_books, display = session.get('display'))
         else:
             return render_template('newlibrary.html', time = datetime.now(), username = session.get('username'), books = user_books, display = session.get('display'))
-    #if ur not logged in, just show the demo page.
+    #if ur not logged in, send to login page.
+    #we used to send them to the demo page but nah.
     else:
-        if request.method == "POST":
-            playlistid = request.form['playlistid']
-            return render_template('library_index.html', time = datetime.now(), playlistid = playlistid)
-        else:
-            return render_template('library_index.html', time = datetime.now())
+        return redirect(url_for('login'))
+        # if request.method == "POST":
+        #     playlistid = request.form['playlistid']
+        #     return render_template('library_index.html', time = datetime.now(), playlistid = playlistid)
+        # else:
+        #     return render_template('library_index.html', time = datetime.now())
 
 @app.route('/library_search', methods = ["GET", "POST"])
 def searchbooks():
