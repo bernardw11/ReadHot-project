@@ -250,7 +250,7 @@ def generate_playlist(title, author, description, subjects, displayname):
     albums = data["albums"]
     if albums["items"]:
         albumid = albums["items"][0]["id"]
-        print(albumid)
+        #print(albumid)
         albumdata = sp3.album_tracks(albumid)
         for track in albumdata['items']:
             list_of_song_ids.append(track['id'])
