@@ -183,29 +183,30 @@ def get_songs_from_playlist(features, playlist_id, difficulty):
     return viable_songs
 
 def get_tone(features_dict, text):
-    #just for reference
-    tone_to_feature = {
-        'joy': 'energy',
-        'confident': 'danceability',
-        'anger': 'valence',
-        'fear': 'valence',
-        'sadness': 'valence',
-        'analytical': 'acousticness',
-        'tentative': 'instrumentalness'
-    }
-    #tones = ['anger', 'fear','joy', 'sadness', 'analytical', 'confident', 'tentative']
-    #spotifyfeatures = ['acousticness', 'danceability', 'energy', 'instrumentalness', 'valence', 'tempo']
-    tone_input = ToneInput(text)
-    tone_dict = service.tone(tone_input=tone_input, content_type="application/json", sentences=False).get_result()
-    for tone in tone_dict['document_tone']['tones']:
-        tone_name = tone['tone_id']
-        feature = tone_to_feature[tone_name]
-        if feature in features_dict:
-            features_dict[feature].append(tone['score'])
-        else:
-            feature_vals = []
-            feature_vals.append(tone['score'])
-            features_dict[feature] = feature_vals
+    if text:
+        #just for reference
+        tone_to_feature = {
+            'joy': 'energy',
+            'confident': 'danceability',
+            'anger': 'valence',
+            'fear': 'valence',
+            'sadness': 'valence',
+            'analytical': 'acousticness',
+            'tentative': 'instrumentalness'
+        }
+        #tones = ['anger', 'fear','joy', 'sadness', 'analytical', 'confident', 'tentative']
+        #spotifyfeatures = ['acousticness', 'danceability', 'energy', 'instrumentalness', 'valence', 'tempo']
+        tone_input = ToneInput(text)
+        tone_dict = service.tone(tone_input=tone_input, content_type="application/json", sentences=False).get_result()
+        for tone in tone_dict['document_tone']['tones']:
+            tone_name = tone['tone_id']
+            feature = tone_to_feature[tone_name]
+            if feature in features_dict:
+                features_dict[feature].append(tone['score'])
+            else:
+                feature_vals = []
+                feature_vals.append(tone['score'])
+                features_dict[feature] = feature_vals
     return features_dict
 
 #
