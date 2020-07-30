@@ -40,7 +40,7 @@ def findsubjects(title, author):
                 if s in subjects:
                     subjects[s] += 1
                 else:
-                    if "reading level" not in s and "accessible" not in s:
+                    if "reading level" not in s and "accessible" not in s and (s != "fiction"):
                         subjects[s] = 1
                 count += 1
     return subjects
