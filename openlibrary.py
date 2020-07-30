@@ -1,5 +1,5 @@
 import requests
-
+import string
 
 isbn = 9780340822777
 viewbook = "https://openlibrary.org/api/books?bibkeys=ISBN:{isbn}&jscmd=data&format=json"
@@ -41,6 +41,7 @@ def findsubjects(title, author):
                     subjects[s] += 1
                 else:
                     if "reading level" not in s and "accessible" not in s and (s != "fiction"):
+                        s = s.translate(str.maketrans('', '', string.punctuation))
                         subjects[s] = 1
                 count += 1
     return subjects

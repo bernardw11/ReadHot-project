@@ -35,34 +35,14 @@
 .pink{
   background-color: #da9194;
 }
-/* .sidenav {
-  background-color: #da9194;
-} */
-/* .sidenav {
-  height: 100%;
-  width: 206px;
-  position: fixed;
-  max-width: 20%;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #da9194;
-  overflow-x: hidden;
-  padding-top: 20px;
-} */
-
-/* .sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 30px;
-  font-family:'Bebas Neue';
-  color: #FFFDD0;
-  display: block;
+.pinktext{
+  font-family: 'Nunito', sans-serif;
+  color: #da9194;
 }
-
-.sidenav a:hover {
-  color: #9e3539;
-} */
+.creamtext{
+  font-family: 'Nunito', sans-serif;
+  color: #FFFDD0;
+}
 .pnav {
   height: 100%;
   position: fixed;
@@ -173,12 +153,12 @@ h3{
 }
 
 h5 {
-    font-family: 'Nunito', sans-serif;   
+    font-family: 'Nunito', sans-serif;
     font-weight: bold;
 }
 
 label, button, p, #text {
-    font-family: 'Nunito', sans-serif;   
+    font-family: 'Nunito', sans-serif;
     font-weight: normal;
 }
 
