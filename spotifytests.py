@@ -25,13 +25,6 @@ service = ToneAnalyzerV3(
 ibmurl = "https://api.us-east.tone-analyzer.watson.cloud.ibm.com/instances/748a62e0-af28-4bb9-81a9-c2c325af50c6"
 service.set_service_url(ibmurl)
 
-#all_music is your library
-#all_music['items'] contains all the tracks
-#for item in all_music['items']:
-#   track = item['track'] is the actual track
-#track['id'], track['name'], etc. is all here
-#get_feature(item) takes in item, not track.
-
 def get_energy(item):
     return get_feature(item, "energy")
 def get_danceability(item):
@@ -159,25 +152,29 @@ def create_playlist(new_playlist_name, feature, sign, level):
 #create_playlist("high acousticness", "acousticness", ">", 0.9)
 
 
+'''now the real code starts'''
 
-def get_songs_from_playlist(features, playlist_id):
+
+
+def get_songs_from_playlist(features, playlist_id, difficulty):
     viable_songs = []
     tracklist = sp2.playlist_tracks(playlist_id)
     for idx, item in enumerate(tracklist['items']):
         if item['track']:
             track = item['track']
-            print(f"{idx} {track['artists'][0]['name']} - {track['name']}")
+            #print(f"{idx} {track['artists'][0]['name']} - {track['name']}")
             id = track['id']
             viable = True
             for feature, level in features.items():
                 feature_value = sp2.audio_features([id])[0][feature]
-                if feature_value < (level - 0.2) or feature_value > (level + 0.2):
+                deviation = len(features) * 0.1 * (2 / difficulty)
+                if feature_value < (level - deviation) or feature_value > (level + deviation):
                     viable = False
-                else:
-                    print(f"{feature}: {get_feature(item, feature)}")
+                # else:
+                #     print(f"{idx} {track['artists'][0]['name']} - {track['name']} {feature}: {get_feature(item, feature)}")
             if viable:
                 viable_songs.append(id)
-                print(f"{track['name']} is viable!")
+                # print(f"{track['name']} is viable!")
     return viable_songs
 
 def get_tone(features_dict, text):
@@ -221,7 +218,7 @@ def squish(features_dict):
             output[feature] = level + ((0.5 - level) / 4)
     return output
 # def generate_playlist(title, author, subjects, cover_url):
-def generate_playlist(title, author, description, subjects, username):
+def generate_playlist(title, author, description, subjects, displayname):
     knownplaylists = {
         'science fiction': ['3Di88mvYplBtkDBIzGLiiM'], #edm
         'romance': ['5KbTzqKBqxQRD8OBtJTZrS', '37i9dQZF1DX50QitC6Oqtn', '37i9dQZF1DX7gIoKXt0gmx'],
@@ -240,9 +237,6 @@ def generate_playlist(title, author, description, subjects, username):
         'sad':'37i9dQZF1DWVrtsSlLKzro'
     }
 
-    new_playlist_id = sp2.user_playlist_create(user_id, f"{title} by {author}", description = f"For {username} - Created by ReadHot")['id']
-    #sp2.playlist_upload_cover_image(new_playlist_id, cover_url)
-
     list_of_song_ids = []
 
     '''Songs from album is DONE DONE DONE DONE DONE'''
@@ -251,6 +245,7 @@ def generate_playlist(title, author, description, subjects, username):
     albums = data["albums"]
     if albums["items"]:
         albumid = albums["items"][0]["id"]
+        print(albumid)
         albumdata = sp2.album_tracks(albumid)
         for track in albumdata['items']:
             list_of_song_ids.append(track['id'])
@@ -267,12 +262,12 @@ def generate_playlist(title, author, description, subjects, username):
         if feature == 'valence':
             final_features[feature] = 1 - final_features[feature]
     final_features = squish(final_features)
-    print(final_features)
+    #print(final_features)
     playlistids = []
-    print(subjects)
+    #print(subjects)
     for genre in knownplaylists:
         for subject in subjects:
-            if genre in subject:
+            if genre in subject or genre == subject:
                 for id in knownplaylists[genre]:
                     playlistids.append(id)
     # for subject in subjects:
@@ -280,55 +275,27 @@ def generate_playlist(title, author, description, subjects, username):
     #         for id in knownplaylists[subject]:
     #             playlistids.append(id)
 
+    cap = len(final_features) * 3
     random.shuffle(playlistids)
-    if len(playlistids) > 5:
-        playlistids = playlistids[:5]
+    if len(playlistids) > cap:
+        playlistids = playlistids[:cap]
     print(playlistids)
 
+    difficulty = len(playlistids)
     for playlistid in playlistids:
-        features_songs = get_songs_from_playlist(final_features, playlistid)
-        for song in features_songs:
-            list_of_song_ids.append(song)
+        if len(list_of_song_ids) < 100:
+            features_songs = get_songs_from_playlist(final_features, playlistid, difficulty)
+            for song in features_songs:
+                if len(list_of_song_ids) < 100:
+                    list_of_song_ids.append(song)
 
     random.shuffle(list_of_song_ids)
-    print(list_of_song_ids)
+    #print(list_of_song_ids)
     print(len(list_of_song_ids))
     if len(list_of_song_ids) > 30:
         list_of_song_ids = list_of_song_ids[:30]
+
+
+    new_playlist_id = sp2.user_playlist_create(user_id, f"{title} by {author}", description = f"For {displayname} - Created by ReadHot")['id']
     sp2.user_playlist_add_tracks(user_id, new_playlist_id, list_of_song_ids)
     return new_playlist_id
-
-
-'''testing code below! shit do be working doe.'''
-
-sampledict = {'man-woman relationships': 3, 'fiction': 3, 'college students': 1,
-    'fiction / contemporary women': 1, 'sexual dominance and submission': 1,
-    'businessmen': 1, 'adultery': 1, 'fiction / romance / contemporary': 1,
-    'dominance (psychology)': 1, 'protected daisy': 1
-}
-bruhid = generate_playlist("fifty shades of grey", "E. L. James","When Anastasia Steele, a young literature student, interviews wealthy young entrepreneur Christian Grey for her campus magazine, their initial meeting introduces Anastasia to an exciting new world that will change them both forever.",
-sampledict, "b")
-'''
-features = {}
-features = get_tone(features, "When Anastasia Steele, a young literature student, interviews wealthy young entrepreneur Christian Grey for her campus magazine, their initial meeting introduces Anastasia to an exciting new world that will change them both forever.")
-print(features)
-# for key in sampledict:
-#     features = get_tone(features, key)
-# print(features)
-final_features = {}
-for feature, levels in features.items():
-    final_features[feature] = sum(levels) / len(levels)
-    if feature == 'valence':
-        final_features[feature] = 1 - final_features[feature]
-print(final_features)
-final_features = squish(final_features)
-print(final_features)
-stuff_id = "50CmpVrHHtTL0e0v2Wvpc4"
-lovetest_id = '1okvjLyiJVXQmxLWMGG9tB'
-happytest_id = '3JlT4kBPE24pPCRr2fiQyZ'
-stuff_songs = get_songs_from_playlist(final_features, lovetest_id)
-#print(stuff_songs)
-print(len(stuff_songs))
-'''
-
-#generate_playlist("fifty shades of grey", "bruh", sampledict)

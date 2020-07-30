@@ -37,3 +37,41 @@ danceability = sp.audio_features([id])[0]['danceability']
 print(energy)
 print(danceability)
 '''
+
+
+#
+# '''testing code below! shit do be working doe.
+#
+# sampledict = {'man-woman relationships': 3, 'fiction': 3, 'college students': 1,
+#     'fiction / contemporary women': 1, 'sexual dominance and submission': 1,
+#     'businessmen': 1, 'adultery': 1, 'fiction / romance / contemporary': 1,
+#     'dominance (psychology)': 1, 'protected daisy': 1
+# }
+# bruhid = generate_playlist("fifty shades of grey", "E. L. James","When Anastasia Steele, a young literature student, interviews wealthy young entrepreneur Christian Grey for her campus magazine, their initial meeting introduces Anastasia to an exciting new world that will change them both forever.",
+# sampledict, "b")
+# '''
+#
+# '''
+# features = {}
+# features = get_tone(features, "When Anastasia Steele, a young literature student, interviews wealthy young entrepreneur Christian Grey for her campus magazine, their initial meeting introduces Anastasia to an exciting new world that will change them both forever.")
+# print(features)
+# # for key in sampledict:
+# #     features = get_tone(features, key)
+# # print(features)
+# final_features = {}
+# for feature, levels in features.items():
+#     final_features[feature] = sum(levels) / len(levels)
+#     if feature == 'valence':
+#         final_features[feature] = 1 - final_features[feature]
+# print(final_features)
+# final_features = squish(final_features)
+# print(final_features)
+# stuff_id = "50CmpVrHHtTL0e0v2Wvpc4"
+# lovetest_id = '1okvjLyiJVXQmxLWMGG9tB'
+# happytest_id = '3JlT4kBPE24pPCRr2fiQyZ'
+# stuff_songs = get_songs_from_playlist(final_features, lovetest_id)
+# #print(stuff_songs)
+# print(len(stuff_songs))
+# '''
+
+#generate_playlist("fifty shades of grey", "bruh", sampledict)

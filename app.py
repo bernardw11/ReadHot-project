@@ -89,8 +89,9 @@ def add_book():
         subjects = findsubjects(title, author)
 
         user = session['username']
+        display = session['display']
 
-        #playlistid = spotifytests.generate_playlist(title, author, description, subjects, user)
+        playlistid = spotifytests.generate_playlist(title, author, description, subjects, display)
         collection = mongo.db.books
         collection.insert({
             'title': title,
@@ -100,7 +101,7 @@ def add_book():
             'isbn': isbn,
             'coverurl': coverurl,
             'user': user,
-            #'playlistid': playlistid
+            'playlistid': playlistid
         })
 
         return redirect(url_for('library'))
