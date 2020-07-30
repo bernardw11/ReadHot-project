@@ -34,8 +34,11 @@ def library():
         user_books = collection.find({'user': session['username']})
 
         if request.method == "POST":
+            title = request.form['title']
+            author = request.form['author']
             playlistid = request.form['playlistid']
-            return render_template('newlibrary.html', time = datetime.now(), playlistid = playlistid, username = session.get('username'), books = user_books, display = session.get('display'))
+            coverurl = request.form['coverurl']
+            return render_template('newlibrary.html', time = datetime.now(), playlistid = playlistid, title=title, author=author, coverurl=coverurl, username = session.get('username'), books = user_books, display = session.get('display'))
         else:
             return render_template('newlibrary.html', time = datetime.now(), username = session.get('username'), books = user_books, display = session.get('display'))
     #if ur not logged in, just show the demo page.
