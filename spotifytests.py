@@ -164,13 +164,15 @@ def get_songs_from_playlist(features, playlist_id, difficulty):
             #print(f"{idx} {track['artists'][0]['name']} - {track['name']}")
             id = track['id']
             viable = True
-            for feature, level in features.items():
-                feature_value = sp3.audio_features([id])[0][feature]
-                deviation = len(features) * 0.1 * (4 / difficulty)
-                if feature_value < (level - deviation) or feature_value > (level + deviation):
-                    viable = False
-                # else:
-                #     print(f"{idx} {track['artists'][0]['name']} - {track['name']} {feature}: {get_feature(item, feature)}")
+            print(features)
+            if features:
+                for feature, level in features.items():
+                    feature_value = sp3.audio_features([id])[0][feature]
+                    deviation = len(features) * 0.1 * (4 / difficulty)
+                    if feature_value < (level - deviation) or feature_value > (level + deviation):
+                        viable = False
+                    # else:
+                    #     print(f"{idx} {track['artists'][0]['name']} - {track['name']} {feature}: {get_feature(item, feature)}")
             if viable:
                 viable_songs.append(id)
                 # print(f"{track['name']} is viable!")
@@ -275,7 +277,10 @@ def generate_playlist(title, author, description, subjects, displayname):
     #         for id in knownplaylists[subject]:
     #             playlistids.append(id)
 
-    cap = len(final_features) * 3
+    if final_features:
+        cap = len(final_features) * 3
+    else:
+        cap = 3
     random.shuffle(playlistids)
     if len(playlistids) > cap:
         playlistids = playlistids[:cap]
