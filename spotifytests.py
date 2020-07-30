@@ -250,7 +250,7 @@ def generate_playlist(title, author, description, subjects, displayname):
     albums = data["albums"]
     if albums["items"]:
         albumid = albums["items"][0]["id"]
-        print(albumid)
+        #print(albumid)
         albumdata = sp3.album_tracks(albumid)
         for track in albumdata['items']:
             list_of_song_ids.append(track['id'])
@@ -302,6 +302,14 @@ def generate_playlist(title, author, description, subjects, displayname):
             for song in features_songs:
                 if len(list_of_song_ids) < 100:
                     list_of_song_ids.append(song)
+
+    # #LOL JUST IN CASE:
+    # if len(list_of_song_ids) < 10:
+    #     left = 30 - len(list_of_song_ids)
+    #     hits = '37i9dQZF1DXcBWIGoYBM5M'
+    #     random = []
+    #
+    #     list_of_song_ids
 
     random.shuffle(list_of_song_ids)
     #print(list_of_song_ids)

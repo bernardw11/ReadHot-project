@@ -59,7 +59,7 @@ def searchbooks():
         else:
             return render_template("library_search.html", time = datetime.now(), username = session.get('username'), display = session.get('display'))
     else:
-        redirect(url_for('login_page'))
+        return redirect(url_for('login_page'))
 
 # ''' The following may be added later:
 # @app.route('/collections')
