@@ -1,4 +1,4 @@
 # ReadHot
 
 BAM
-![Library](static/img/libraryimg.png?raw=true "Library")
+![Library](static/img/libraryimg.PNG?raw=true "Library")
