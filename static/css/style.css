@@ -70,8 +70,10 @@
   right: 0;
   background-color: #da9194;
   overflow-x: hidden;
-  padding-top: 20px;
-  width: 25%
+  /* padding-top: 20px; */
+  width: 25%;
+  font-family: 'Nunito', sans-serif;
+  color: #FFFDD0;
 }
 .snav {
   height: 100%;

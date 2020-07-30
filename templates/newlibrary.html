@@ -11,6 +11,9 @@
         <div class="col my-4">
           <div class="card bookcover">
               <form action="/library" method="post">
+                <input type="hidden" name="title" value="{{book.title}}"/>
+                <input type="hidden" name="author" value="{{book.author}}"/>
+                <input type="hidden" name="coverurl" value="{{book.coverurl}}"/>
                 <button class="btn" type="submit" name="playlistid" value="{{book.playlistid}}">
                     <img src="{{book.coverurl}}" alt="Submit" class="card-img-top even-height smallcover">
                 </button>
@@ -32,9 +35,13 @@
         <div class="col my-4">
           <div class="card bookcover">
               <form action="/library" method="post">
+                <input type="hidden" name="title" value="{{book.title}}"/>
+                <input type="hidden" name="author" value="{{book.author}}"/>
+                <input type="hidden" name="coverurl" value="{{book.coverurl}}"/>
                 <button class="btn" type="submit" name="playlistid" value="{{book.playlistid}}">
                     <img src="{{book.coverurl}}" alt="Submit" class="card-img-top even-height smallcover">
                 </button>
+                
               </form>
           </div>
         </div>
