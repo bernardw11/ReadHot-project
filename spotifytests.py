@@ -303,6 +303,14 @@ def generate_playlist(title, author, description, subjects, displayname):
                 if len(list_of_song_ids) < 100:
                     list_of_song_ids.append(song)
 
+    # #LOL JUST IN CASE:
+    # if len(list_of_song_ids) < 10:
+    #     left = 30 - len(list_of_song_ids)
+    #     hits = '37i9dQZF1DXcBWIGoYBM5M'
+    #     random = []
+    #
+    #     list_of_song_ids
+
     random.shuffle(list_of_song_ids)
     #print(list_of_song_ids)
     # print(f"length of song ids: {len(list_of_song_ids)}")
