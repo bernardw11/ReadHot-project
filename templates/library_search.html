@@ -7,8 +7,9 @@
     <div class="py-4">
     <form method="post" action="/library_search" class="form-inline">
         <input type="text" class="form-control mb-2 mr-sm-2" name="bookchoice" placeholder="Search for a book"/>
-        <button type="submit" value="Submit" class="btn btn-danger mb-2"/>Submit</button>
+        <button type="submit" value="Submit" class="btn btn-danger mb-2">Submit</button>
     </form>
+    </div>
     <!-- <form class="form-inline">
         <label class="sr-only" for="inlineFormInputName2">Name</label>
         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
@@ -46,12 +47,11 @@
                     <input type="hidden" name="description" value="{{i.volumeInfo.description}}"/>
                     <input type="hidden" name="isbn" value="{{i.volumeInfo.industryIdentifiers.0.identifier}}"/>
                     <input type="hidden" name="coverurl" value="{{i.volumeInfo.imageLinks.thumbnail}}"/>
-                    <button class="btn btn-primary" type="submit" >Add</button>
+                    <button class="btn btn-primary" type="submit">Add</button>
                     <!-- <button class="btn btn-primary" type="submit" name="playlistid" value="0zjGLygoBmpafEsGtk5n1a">Add (Fake)</button> -->
                 </form>
             </div>
           </div>
-        </div>
       {% endfor %}
     {% endif %}
 
