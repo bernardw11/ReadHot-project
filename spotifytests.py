@@ -7,6 +7,8 @@ from ibm_watson import ToneAnalyzerV3
 from ibm_watson.tone_analyzer_v3 import ToneInput
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
+
+#Spotify authentication
 client_id = '7c22514bc25d4b2483f5471d9d1b6dc9'
 client_secret = '394d743f7c2c4cb591aed988038b5bab'
 redirect_uri = 'http://localhost:8888/callback'
@@ -16,6 +18,7 @@ sp3 = spotipy.Spotify(auth_manager = SpotifyOAuth(scope = scope,
     client_id = client_id, client_secret = client_secret, redirect_uri = redirect_uri, username = "bruh"))
 user_id = sp3.current_user()['id']
 
+#IBM Watson Tone Analyzer authentication
 # Authentication via IAM
 authenticator = IAMAuthenticator('GKKyb6SAR11iYpZjZPy9Bnhu3SIC0Nmjc7befjGW3GfV')
 service = ToneAnalyzerV3(
@@ -164,11 +167,12 @@ def get_songs_from_playlist(features, playlist_id, difficulty):
             #print(f"{idx} {track['artists'][0]['name']} - {track['name']}")
             id = track['id']
             viable = True
-            print(features)
+            #print(features)
             if features:
                 for feature, level in features.items():
                     feature_value = sp3.audio_features([id])[0][feature]
                     deviation = len(features) * 0.1 * (4 / difficulty)
+                    #print(deviation)
                     if feature_value < (level - deviation) or feature_value > (level + deviation):
                         viable = False
                     # else:
@@ -272,6 +276,9 @@ def generate_playlist(title, author, description, subjects, displayname):
                 for id in knownplaylists[genre]:
                     if id not in playlistids:
                         playlistids.append(id)
+    if len(playlistids) == 0:
+        playlistids.append('3RmQngCZV2qBNXEzMAUKTo')
+    #print(playlistids)
     # for subject in subjects:
     #     if subject in knownplaylists:
     #         for id in knownplaylists[subject]:
@@ -282,10 +289,12 @@ def generate_playlist(title, author, description, subjects, displayname):
     else:
         cap = 3
     random.shuffle(playlistids)
+    # print(playlistids)
     if len(playlistids) > cap:
         playlistids = playlistids[:cap]
-    print(playlistids)
+    # print(f"playlistids: {playlistids}")
 
+    # print(f"{final_features}, {playlistids}, {cap}")
     difficulty = len(playlistids)
     for playlistid in playlistids:
         if len(list_of_song_ids) < 100:
@@ -296,11 +305,13 @@ def generate_playlist(title, author, description, subjects, displayname):
 
     random.shuffle(list_of_song_ids)
     #print(list_of_song_ids)
-    print(len(list_of_song_ids))
+    # print(f"length of song ids: {len(list_of_song_ids)}")
     if len(list_of_song_ids) > 30:
         list_of_song_ids = list_of_song_ids[:30]
 
 
     new_playlist_id = sp3.user_playlist_create(user_id, f"{title} by {author}", description = f"For {displayname} - Created by ReadHot")['id']
+    # print(new_playlist_id)
+    # print(list_of_song_ids)
     sp3.user_playlist_add_tracks(user_id, new_playlist_id, list_of_song_ids)
     return new_playlist_id
