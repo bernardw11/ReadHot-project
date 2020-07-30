@@ -58,24 +58,24 @@ def searchbooks():
     else:
         redirect(url_for('login_page'))
 
-''' The following may be added later:
-@app.route('/collections')
-def collections():
-    return render_template('collections.html', time = datetime.now())
-
-@app.route('/playlists', methods = ["GET", "POST"])
-def playlists():
-    if request.method == "POST":
-        feature = request.form['feature']
-        playlistid = spotifytests.create_playlist(f"New playlist: {feature}", feature, ">", 0.7)
-        return render_template('playlists.html', time = datetime.now(), playlistid = playlistid)
-    else:
-        return render_template('playlists.html', time = datetime.now())
-
-@app.route('/template')
-def template():
-    return render_template('template.html', time = datetime.now())
-'''
+# ''' The following may be added later:
+# @app.route('/collections')
+# def collections():
+#     return render_template('collections.html', time = datetime.now())
+#
+# @app.route('/playlists', methods = ["GET", "POST"])
+# def playlists():
+#     if request.method == "POST":
+#         feature = request.form['feature']
+#         playlistid = spotifytests.create_playlist(f"New playlist: {feature}", feature, ">", 0.7)
+#         return render_template('playlists.html', time = datetime.now(), playlistid = playlistid)
+#     else:
+#         return render_template('playlists.html', time = datetime.now())
+#
+# @app.route('/template')
+# def template():
+#     return render_template('template.html', time = datetime.now())
+# '''
 
 # CONNECT TO DB, ADD DATA
 @app.route('/add_book', methods = ['GET', 'POST'])
